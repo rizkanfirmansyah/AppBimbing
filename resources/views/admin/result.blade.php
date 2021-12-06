@@ -65,7 +65,7 @@
                                         Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                                     </div>
                                 </div>
-                                <div class="form-row my-3">
+                                {{-- <div class="form-row my-3">
                                     <div class="col-1">
                                         <label for="title" class="form-label text-dark"><strong>File
                                             </strong></label>
@@ -75,7 +75,7 @@
                                     <div class="col-10">
                                         <a href="#" class="badge badge-primary p-2"><i class="fas fa-download"></i> Download</a>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="form-row my-3">
                                     <div class="col-1">
                                         <label for="title" class="form-label text-dark"><strong>Keterangan
@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="col-1">:
                                     </div>
-                                    <div class="col">
+                                    <div class="col-8">
                                         <select name="dosen" id="dosen" class="form-control">
                                             <option value disabled selected>Pilih Dosen Pembimbing</option>
                                         </select>
