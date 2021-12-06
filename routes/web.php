@@ -44,6 +44,10 @@ Route::group(['prefix' => 'mahasiswa', 'middleware' => 'auth'], function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard-admin');
+    Route::get('/bimbingan', [AdminController::class, 'bimbingan'])->name('admin-bimbingan');
+    Route::get('/mahasiswa', [AdminController::class, 'mahasiswa'])->name('admin-mahasiswa');
+    Route::get('/seminar', [AdminController::class, 'seminar'])->name('admin-seminar');
+    Route::get('/result', [AdminController::class, 'result'])->name('admin-result');
 });
 
 

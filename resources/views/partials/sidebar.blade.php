@@ -67,6 +67,36 @@
         </li>
     @endif
 
+
+    {{-- Admin --}}
+    @if (auth()->user()->role == 1)
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Bimbingan
+        </div>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item {{ request()->routeIs('admin-bimbingan') ? 'active' : ' ' }}">
+            <a class="nav-link" href="{{ route('admin-bimbingan') }}">
+                <i class="fas fa-fw fa-clipboard-list"></i>
+                <span>List Pengajuan Bimbingan</span></a>
+        </li>
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item {{ request()->routeIs('admin-mahasiswa') ? 'active' : ' ' }}">
+            <a class="nav-link" href="{{ route('admin-mahasiswa') }}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Data Mahasiswa </span></a>
+        </li>
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item {{ request()->routeIs('admin-seminar') ? 'active' : ' ' }}">
+            <a class="nav-link" href="{{ route('admin-seminar') }}">
+                <i class="fas fa-fw fa-calendar-alt"></i>
+                <span>Data Seminar </span></a>
+        </li>
+    @endif
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

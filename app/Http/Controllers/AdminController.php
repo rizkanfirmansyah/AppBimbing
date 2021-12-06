@@ -82,4 +82,24 @@ class AdminController extends Controller
     {
         //
     }
+
+    public function mahasiswa()
+    {
+        return view('admin.mahasiswa', ['title' => 'Data Mahasiswa Bimbingan']);
+    }
+
+    public function bimbingan()
+    {
+        return view('admin.list', ['title' => 'Data Pengajuan Bimbingan']);
+    }
+
+    public function seminar()
+    {
+        return view('admin.seminar', ['title' => 'Data Seminar']);
+    }
+
+    public function result()
+    {
+        return view('admin.result', ['title' => 'Data Hasil Bimbingan']);
+    }
 }
