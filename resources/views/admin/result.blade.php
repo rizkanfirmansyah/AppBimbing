@@ -81,10 +81,12 @@
                                         <label for="title" class="form-label text-dark"><strong>Keterangan
                                             </strong></label>
                                     </div>
-                                    <div class="col-2">:
+                                    <div class="col-1">:
                                     </div>
-                                    <div class="col-12">
-                                        <textarea name="keterangan" id="keterangan" cols="30" rows="5" class="form-control"></textarea>
+                                    <div class="col">
+                                        <select name="dosen" id="dosen" class="form-control">
+                                            <option value disabled selected>Pilih Dosen Pembimbing</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
