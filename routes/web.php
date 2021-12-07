@@ -74,8 +74,8 @@ Route::get('/loginAdmin', function () {
 
 
 Route::prefix('auth')->group(function () {
-    Route::post('register', [AuthController::class, "store"])->name('register');
-    Route::post('login', [AuthController::class, "login"])->name('login');
+    Route::post('register', [AuthController::class, "store"])->name('auth-register');
+    Route::post('login', [AuthController::class, "login"])->name('auth-login');
     Route::post('password', [AuthController::class, "password"])->name('password');
 });
 
