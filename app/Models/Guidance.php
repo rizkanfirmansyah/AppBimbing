@@ -11,5 +11,14 @@ class Guidance extends Model
     use HasFactory;
     use Timestamp;
 
-    protected $guards = ['id'];
+    protected $table = 'guidances';
+    protected $fillable = [
+        'mahasiswa_id',
+        'title',
+        'file',
+        'description',
+        'status',
+        'description_dosen',
+        'memo'
+    ];
 }

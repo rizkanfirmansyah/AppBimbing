@@ -33,7 +33,7 @@ Route::get('/loginMahasiswa', function () {
 
 Route::get('/registerMahasiswa', function () {
     return view('mahasiswa/registerMahasiswa', ['title' => 'Register Mahasiswa']);
-});
+})->name('register');
 
 Route::group(['prefix' => 'mahasiswa', 'middleware' => 'auth'], function () {
     Route::get('/dashboard', function () {

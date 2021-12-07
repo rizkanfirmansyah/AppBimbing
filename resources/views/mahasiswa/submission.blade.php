@@ -20,7 +20,7 @@
                     <!-- Card Body -->
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('insert-bimbingan') }}">
+                        <form method="POST" action="{{ route('insert-bimbingan') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="title" class="form-label">Judul Bimbingan</label>

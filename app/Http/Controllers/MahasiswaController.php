@@ -32,8 +32,11 @@ class MahasiswaController extends Controller
             'description' => 'required',
             'file' => 'required',
         ]);
-        $request->request->add(['mahasiswa_id' => Mahasiswa::where('user_id', auth()->user()->id)->get()[0]->id, 'file' => $request->file ? request()->file('file')->store('images/items') : null]);
+        // dd(request()->file('file'));
+        $request->request->add(['mahasiswa_id' => Mahasiswa::where('user_id', auth()->user()->id)->get()[0]->id, 'file' => $request->file ? request()->file('file')->store('files/') : null]);
         Guidance::create($request->all());
+        $request->session()->flash('success', 'Pengajuan telah dibuat, tunggu hasil bimbingan!');
+        return redirect()->route('pengajuan-bimbingan');
     }
 
     /**

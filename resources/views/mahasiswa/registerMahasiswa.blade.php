@@ -42,7 +42,7 @@
         <div class="container mt-4">
             <div class="card border bg-light" style="width: 40rem;">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('auth-register') }}">
                         @csrf
                         <div class="mb-3 mt-3">
                             <label for="nama" class="form-label">Nama Lengkap :</label>
