@@ -20,18 +20,34 @@
                     <!-- Card Body -->
                     <div class="card-body">
 
-                        <form>
+                        <form method="POST" action="{{ route('insert-bimbingan') }}">
+                            @csrf
                             <div class="mb-3">
                                 <label for="title" class="form-label">Judul Bimbingan</label>
-                                <textarea class="form-control" id="title" name="title"></textarea>
+                                <textarea class="form-control @error('title') is-invalid @enderror" id="title" name="title"></textarea>
+                                @error('title')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Topik Pembahasan</label>
-                                <textarea class="form-control" id="description" rows="5" name="description"></textarea>
+                                <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="5" name="description"></textarea>
+                                @error('description')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Upload File </label>
-                                <input class="form-control" type="file" id="formFile">
+                                <input class="form-control @error('file') is-invalid @enderror" type="file" id="formFile" name="file">
+                                @error('file')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             </div>
                             <button type="reset" class=" mx-2 btn btn-secondary float-right">Reset</button>
                             <button type="submit" class=" mx-2 btn btn-primary float-right">Submit</button>

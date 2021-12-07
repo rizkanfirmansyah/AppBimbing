@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guidance;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,16 @@ class MahasiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'file' => 'required',
+        ]);
+        $request->request->add(['mahasiswa_id' => Mahasiswa::where('user_id', auth()->user()->id)->get()[0]->id, 'file' => $request->file ? request()->file('file')->store('images/items') : null]);
+        Guidance::create($request->all());
     }
 
     /**

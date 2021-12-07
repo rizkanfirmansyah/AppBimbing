@@ -63,6 +63,7 @@ Route::group(['prefix' => 'bimbingan', 'middleware' => 'auth'], function () {
     Route::get('/pengajuan', [GuidanceController::class, 'submission'])->name('pengajuan-bimbingan');
     Route::get('/data', [GuidanceController::class, 'list'])->name('data-bimbingan');
     Route::get('/hasil', [GuidanceController::class, 'result'])->name('hasil-bimbingan');
+    Route::post('/insert', [MahasiswaController::class, 'create'])->name('insert-bimbingan');
 });
 
 Route::get('/redirects',  [HomeController::class, "index"]);
