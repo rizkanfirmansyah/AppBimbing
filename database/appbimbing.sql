@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `mahasiswas` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table web_bimbingan.mahasiswas: ~2 rows (approximately)
+-- Dumping data for table web_bimbingan.mahasiswas: ~1 rows (approximately)
 /*!40000 ALTER TABLE `mahasiswas` DISABLE KEYS */;
 INSERT INTO `mahasiswas` (`id`, `user_id`, `nama`, `jurusan`, `created_at`, `updated_at`) VALUES
 	(2, '5', 'Rizkan Aprianda Firmansyah', 'Teknik Informatika', '2021-12-04 19:13:07', '2021-12-04 19:13:07');
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table web_bimbingan.migrations: ~7 rows (approximately)
+-- Dumping data for table web_bimbingan.migrations: ~8 rows (approximately)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `name`, `role`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', '1', NULL, NULL, '$2y$10$tBx3fBRmFWnd6ououObt6uIfPOBg087oCagVTJpzl1ahPsMUvfy4C', NULL, NULL, NULL, NULL, NULL, '2021-12-04 19:13:07', '2021-12-06 18:42:16'),
 	(5, '2142431', '3', NULL, NULL, '$2y$10$tlM6z0pbAYJQXiLtxgRcbuhGagfdSgCPTIRwdv/bhJCVNvja0jtKy', NULL, NULL, NULL, NULL, NULL, '2021-12-04 19:13:07', '2021-12-06 18:17:51'),
-	(6, 'dosen', '2', NULL, NULL, '$2y$10$TGggLvaSdH19tZKUaSLFBOqe90O5EfS9c/ke72tpaNGfXdH3omZ7O', NULL, NULL, NULL, NULL, NULL, '2021-12-04 19:13:07', '2021-12-06 17:55:24');
+	(6, 'dosen', '2', NULL, NULL, '$2y$10$tBx3fBRmFWnd6ououObt6uIfPOBg087oCagVTJpzl1ahPsMUvfy4C', NULL, NULL, NULL, NULL, NULL, '2021-12-04 19:13:07', '2021-12-06 17:55:24');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
