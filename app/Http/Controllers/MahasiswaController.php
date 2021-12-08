@@ -16,6 +16,15 @@ class MahasiswaController extends Controller
     public function index()
     {
         $mahasiswa = Mahasiswa::where('user_id', auth()->user()->id)->get();
+        $bimbingan = Guidance::where('mahasiswa_id', $mahasiswa[0]->id)->get();
+        $title = 'Dashboard Mahasiswa';
+        return view('mahasiswa/dashboardMahasiswa', compact('title', 'mahasiswa', 'bimbingan'));
+    }
+
+
+    public function profile()
+    {
+        $mahasiswa = Mahasiswa::where('user_id', auth()->user()->id)->get();
         return view('mahasiswa.profile', ['title' => 'Profile Mahasiswa', 'data' => $mahasiswa]);
     }
 
@@ -30,10 +39,10 @@ class MahasiswaController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'file' => 'required',
+            'formFile' => 'required',
         ]);
         // dd(request()->file('file'));
-        $request->request->add(['mahasiswa_id' => Mahasiswa::where('user_id', auth()->user()->id)->get()[0]->id, 'file' => $request->file ? request()->file('file')->store('files/') : null]);
+        $request->request->add(['mahasiswa_id' => Mahasiswa::where('user_id', auth()->user()->id)->get()[0]->id, 'file' => $request->formFile ? $request->file('formFile')->store('files/') : null]);
         Guidance::create($request->all());
         $request->session()->flash('success', 'Pengajuan telah dibuat, tunggu hasil bimbingan!');
         return redirect()->route('pengajuan-bimbingan');

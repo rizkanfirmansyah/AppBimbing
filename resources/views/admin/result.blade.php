@@ -86,6 +86,9 @@
                                     <div class="col-8">
                                         <select name="dosen" id="dosen" class="form-control">
                                             <option value disabled selected>Pilih Dosen Pembimbing</option>
+                                            @foreach ($dosen as $item)
+                                                <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

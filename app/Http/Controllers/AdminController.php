@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dosen;
+use App\Models\Guidance;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -90,7 +92,10 @@ class AdminController extends Controller
 
     public function bimbingan()
     {
-        return view('admin.list', ['title' => 'Data Pengajuan Bimbingan']);
+        $bimbingan = Guidance::all();
+        $dosen = Dosen::all();
+        $title = 'Data Pengajuan Bimbingan';
+        return view('admin.list', compact('title', 'bimbingan', 'dosen'));
     }
 
     public function seminar()
@@ -100,6 +105,8 @@ class AdminController extends Controller
 
     public function result()
     {
-        return view('admin.result', ['title' => 'Data Hasil Bimbingan']);
+        $dosen = Dosen::all();
+        $title = 'Data Hasil Bimbingan';
+        return view('admin.result', compact('title', 'dosen'));
     }
 }

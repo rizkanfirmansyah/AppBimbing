@@ -39,7 +39,7 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="title" class="form-label">Password Lama</label>
-                                <input class="form-control @error('password_old') is-invalid @enderror" id="password_old"
+                                <input type="password" class="form-control @error('password_old') is-invalid @enderror" id="password_old"
                                     name="password_old">
                                 @error('password_old')
                                     <div class="invalid-feedback">
@@ -49,7 +49,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="password_new" class="form-label">Password Baru</label>
-                                <input class="form-control @error('password_new') is-invalid @enderror" id="password_new"
+                                <input type="password" class="form-control @error('password_new') is-invalid @enderror" id="password_new"
                                     rows="5" name="password_new">
                                 @error('password_new')
                                     <div class="invalid-feedback">
@@ -59,7 +59,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="repeat_password" class="form-label">Konfirmasi Password Baru</label>
-                                <input class="form-control @error('repeat_password') is-invalid @enderror"
+                                <input type="password" class="form-control @error('repeat_password') is-invalid @enderror"
                                     id="repeat_password" rows="5" name="repeat_password">
                                 @error('repeat_password')
                                     <div class="invalid-feedback">

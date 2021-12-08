@@ -29,24 +29,31 @@
                                         <th>Nama</th>
                                         <th>Judul</th>
                                         <th>Topik</th>
-                                        <th>Keterangan</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>13 January 2021</td>
-                                        <td>Ahmad Husein </td>
-                                        <td>Javascript Developer</td>
-                                        <td>Singapore</td>
-                                        <td><a href="{{route('admin-result')}}" class="badge badge-primary"><i class="fas fa-eye"></i> Lihat Data</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>13 January 2021</td>
-                                        <td>Rizkan Firmansyah</td>
-                                        <td>Customer Support</td>
-                                        <td>New York</td>
-                                        <td><a href="{{route('admin-result')}}" class="badge badge-primary"><i class="fas fa-eye"></i> Lihat Data</a></td>
-                                    </tr>
+                                    @foreach ($bimbingan as $item)
+                                        <tr>
+                                            <td>{{ $item->created_at }}</td>
+                                            <td>{{ $item->mahasiswa->nama }}</td>
+                                            <td>{{ $item->title }}</td>
+                                            <td>{{ $item->description }}</td>
+                                            <td><?php
+                                            if ($item->status == 3) {
+                                                echo '<a class="badge badge-secondary"><i class="fas fa-user"></i> Waiting</a>';
+                                            } elseif ($item->status == 2) {
+                                                echo '<a class="badge badge-warning"><i class="fas fa-clock"></i> process</a>';
+                                            } elseif ($item->status == 1) {
+                                                echo '<a class="badge badge-success"><i class="fas fa-check"></i> Approved</a>';
+                                            } else {
+                                                echo '<a class="badge badge-danger"><i class="fas fa-times"></i> Reject</a>';
+                                            } ?>
+                                            </td>
+                                            <td><a href="{{route('admin-result')}}" class="badge badge-primary"><i class="fas fa-eye"></i> Lihat Data</a></td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

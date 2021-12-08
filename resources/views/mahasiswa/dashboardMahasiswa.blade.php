@@ -28,13 +28,40 @@
                             <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                 aria-labelledby="dropdownMenuLink">
                                 <div class="dropdown-header">Dropdown Header:</div>
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">See Detail</a>
                             </div>
                         </div>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Judul</th>
+                                        <th>Topik</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($bimbingan as $item)
+                                        <tr>
+                                            <td>{{ $item->title }}</td>
+                                            <td><?php
+                                            if ($item->status == 3) {
+                                                echo '<a class="badge badge-secondary"><i class="fas fa-user"></i> Waiting</a>';
+                                            } else if ($item->status == 2) {
+                                                echo '<a class="badge badge-warning"><i class="fas fa-clock"></i> process</a>';
+                                            } else if ($item->status == 1) {
+                                                echo '<a class="badge badge-success"><i class="fas fa-check"></i> Approved</a>';
+                                            } else {
+                                                echo '<a class="badge badge-danger"><i class="fas fa-times"></i> Reject</a>';
+                                            } ?>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -53,15 +80,40 @@
                             <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                 aria-labelledby="dropdownMenuLink">
                                 <div class="dropdown-header">Dropdown Header:</div>
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="#">See Detail</a>
                             </div>
                         </div>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Judul</th>
+                                        <th>Topik</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($bimbingan as $item)
+                                        <tr>
+                                            <td>{{ $item->title }}</td>
+                                            <td><?php
+                                            if ($item->status == 3) {
+                                                echo '<a class="badge badge-secondary"><i class="fas fa-user"></i> Waiting</a>';
+                                            } else if ($item->status == 2) {
+                                                echo '<a class="badge badge-warning"><i class="fas fa-clock"></i> process</a>';
+                                            } else if ($item->status == 1) {
+                                                echo '<a class="badge badge-success"><i class="fas fa-check"></i> Approved</a>';
+                                            } else {
+                                                echo '<a class="badge badge-danger"><i class="fas fa-times"></i> Reject</a>';
+                                            } ?>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

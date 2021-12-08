@@ -19,35 +19,50 @@
                 <div class="card shadow mb-4">
                     <!-- Card Body -->
                     <div class="card-body">
+                        <div class="card-header">
+                            @if (session()->has('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                            @if (session()->has('error'))
 
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+                        </div>
                         <form method="POST" action="{{ route('insert-bimbingan') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="title" class="form-label">Judul Bimbingan</label>
-                                <textarea class="form-control @error('title') is-invalid @enderror" id="title" name="title"></textarea>
+                                <textarea class="form-control @error('title') is-invalid @enderror" id="title"
+                                    name="title"></textarea>
                                 @error('title')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Topik Pembahasan</label>
-                                <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="5" name="description"></textarea>
+                                <textarea class="form-control @error('description') is-invalid @enderror" id="description"
+                                    rows="5" name="description"></textarea>
                                 @error('description')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Upload File </label>
-                                <input class="form-control @error('file') is-invalid @enderror" type="file" id="formFile" name="file">
+                                <input class="form-control @error('file') is-invalid @enderror" type="file" id="formFile"
+                                    name="formFile">
                                 @error('file')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <button type="reset" class=" mx-2 btn btn-secondary float-right">Reset</button>
                             <button type="submit" class=" mx-2 btn btn-primary float-right">Submit</button>

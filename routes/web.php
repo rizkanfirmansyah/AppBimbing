@@ -36,10 +36,8 @@ Route::get('/registerMahasiswa', function () {
 })->name('register');
 
 Route::group(['prefix' => 'mahasiswa', 'middleware' => 'auth'], function () {
-    Route::get('/dashboard', function () {
-        return view('mahasiswa/dashboardMahasiswa', ['title' => 'Dashboard Mahasiswa']);
-    })->name('dashboard-mahasiswa');
-    Route::get('/profile', [MahasiswaController::class, 'index'])->name('profile-mahasiswa');
+    Route::get('/dashboard', [MahasiswaController::class, 'index'])->name('dashboard-mahasiswa');
+    Route::get('/profile', [MahasiswaController::class, 'profile'])->name('profile-mahasiswa');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
