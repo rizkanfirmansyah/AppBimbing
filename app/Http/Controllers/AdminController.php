@@ -107,6 +107,22 @@ class AdminController extends Controller
     {
         $dosen = Dosen::all();
         $title = 'Data Hasil Bimbingan';
-        return view('admin.result', compact('title', 'dosen'));
+        $data = Guidance::find($_GET['id']);
+        return view('admin.result', compact('title', 'dosen', 'data'));
+    }
+
+    public function result_post(Request $request)
+    {
+        if ($request->dosen) {
+            $data = [
+                'dosen_id' => $request->dosen,
+                'status' => '2',
+            ];
+            Guidance::find($request->id)->update($data);
+            $request->session()->flash('success', 'Pengajuan bimbingan sukses diperbaharui!');
+            return redirect()->route('admin-bimbingan');
+        }
+        $request->session()->flash('error', 'Pengajuan bimbingan gagal diperbaharui, pilih dosen terlebih dahulu!');
+        return redirect()->back();
     }
 }

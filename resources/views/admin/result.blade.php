@@ -6,7 +6,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">{{$title}}</h1>
+            <h1 class="h3 mb-0 text-gray-800">{{ $title }}</h1>
             <a href="{{ URL::previous() }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                     class="fas fa-sign-in-alt fa-sm text-white-50"></i> Kembali </a>
         </div>
@@ -16,10 +16,24 @@
 
             <div class="col-xl-12 col-lg-12">
                 <div class="card shadow mb-4">
+                    <div class="card-header">
+                        @if (session()->has('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @if (session()->has('error'))
+
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+                    </div>
                     <!-- Card Body -->
                     <div class="card-body">
 
-                        <form>
+                        <form method="post" action="{{ route('result-post') }}">
+                            @csrf
                             <div class="mb-3">
                                 <div class="form-row my-3">
                                     <div class="col-1">
@@ -29,7 +43,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        {{ $data->mahasiswa->nama }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -40,7 +54,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        {{ $data->mahasiswa->npm }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -51,7 +65,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        {{ $data->title }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -62,20 +76,9 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        {{ $data->description }}
                                     </div>
                                 </div>
-                                {{-- <div class="form-row my-3">
-                                    <div class="col-1">
-                                        <label for="title" class="form-label text-dark"><strong>File
-                                            </strong></label>
-                                    </div>
-                                    <div class="col">:
-                                    </div>
-                                    <div class="col-10">
-                                        <a href="#" class="badge badge-primary p-2"><i class="fas fa-download"></i> Download</a>
-                                    </div>
-                                </div> --}}
                                 <div class="form-row my-3">
                                     <div class="col-1">
                                         <label for="title" class="form-label text-dark"><strong>Keterangan
@@ -87,9 +90,10 @@
                                         <select name="dosen" id="dosen" class="form-control">
                                             <option value disabled selected>Pilih Dosen Pembimbing</option>
                                             @foreach ($dosen as $item)
-                                                <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                                <option {{$data->dosen_id == $item->id ? 'selected' : ' '}} value="{{ $item->id }}">{{ $item->nama }}</option>
                                             @endforeach
                                         </select>
+                                        <input type="hidden" name="id" value="{{ $_GET['id'] }}">
                                     </div>
                                 </div>
                             </div>

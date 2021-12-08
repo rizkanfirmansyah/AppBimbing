@@ -34,9 +34,9 @@
 
     <div class="position-absolute top-50 start-50 translate-middle">
         <div class="container mb-4">
-            <h1>
+            <h2>
                 <center>Login Mahasiswa</center>
-            </h1>
+            </h2>
         </div>
 
         <div class="container mt-4">

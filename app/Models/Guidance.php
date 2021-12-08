@@ -17,6 +17,7 @@ class Guidance extends Model
         'title',
         'file',
         'description',
+        'dosen_id',
         'status',
         'description_dosen',
         'memo'

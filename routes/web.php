@@ -46,6 +46,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/mahasiswa', [AdminController::class, 'mahasiswa'])->name('admin-mahasiswa');
     Route::get('/seminar', [AdminController::class, 'seminar'])->name('admin-seminar');
     Route::get('/result', [AdminController::class, 'result'])->name('admin-result');
+    Route::post('/result_post', [AdminController::class, 'result_post'])->name('result-post');
 });
 
 
