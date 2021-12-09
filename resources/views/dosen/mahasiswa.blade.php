@@ -15,8 +15,8 @@
         <div class="row">
 
             <div class="col-12">
-                 <!-- DataTales Example -->
-                 <div class="card shadow mb-4">
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Table Data </h6>
                     </div>
@@ -32,18 +32,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Rizkan FIrmansyah</td>
-                                        <td>2144321</td>
-                                        <td>Teknik Informatika</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Ahmad Husein </td>
-                                        <td>2144322</td>
-                                        <td>Teknik Informatika</td>
-                                    </tr>
+                                    <?php $i = 1; ?>
+                                    @foreach ($mahasiswa as $item)
+                                        <tr>
+                                            <td>{{ $i }}</td>
+                                            <td>{{ $item->mahasiswa->nama }}</td>
+                                            <td>{{ $item->mahasiswa->npm }}</td>
+                                            <td>{{ $item->mahasiswa->jurusan }}</td>
+                                        </tr>
+                                        <?php $i++; ?>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

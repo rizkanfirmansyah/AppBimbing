@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dosen;
+use App\Models\Guidance;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DosenController extends Controller
 {
@@ -13,7 +16,11 @@ class DosenController extends Controller
      */
     public function index()
     {
-        return view('dosen.dashboard', ['title' => 'Dashboard Dosen']);
+        $dosen = Dosen::where('user_id', auth()->user()->id)->get()[0];
+        $data = Guidance::where('dosen_id', $dosen->id)->where('status', '2')->get();
+        $mahasiswa = Guidance::where('dosen_id', $dosen->id)->groupBy('mahasiswa_id')->get();
+        $title = 'Dashboard Dosen';
+        return view('dosen.dashboard', compact('title', 'data', 'mahasiswa'));
     }
 
     /**
@@ -77,23 +84,36 @@ class DosenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function approved(Request $request)
     {
         //
+        $request->request->add(['status' => 1, 'description_dosen' => $request->keterangan]);
+        Guidance::find($request->id)->update($request->all());
+        return redirect()->route('list-bimbingan');
     }
 
     public function list()
     {
-        return view('dosen.list', ['title' => 'Daftar Bimbingan']);
+        $dosen = Dosen::where('user_id', auth()->user()->id)->get()[0];
+        $data = Guidance::where('dosen_id', $dosen->id)->where('status', '!=' ,'3')->get();
+        $mahasiswa = Guidance::where('dosen_id', $dosen->id)->groupBy('mahasiswa_id')->get();
+        $title = 'Daftar Bimbingan';
+        return view('dosen.list', compact('title', 'data', 'mahasiswa', 'dosen'));
     }
 
     public function mahasiswa()
     {
-        return view('dosen.mahasiswa', ['title' => 'Daftar Mahasiswa']);
+        $dosen = Dosen::where('user_id', auth()->user()->id)->get()[0];
+        $data = Guidance::where('dosen_id', $dosen->id)->where('status', '!=' ,'3')->get();
+        $mahasiswa = Guidance::where('dosen_id', $dosen->id)->groupBy('mahasiswa_id')->get();
+        $title = 'Daftar Mahasiswa';
+        return view('dosen.mahasiswa', compact('title', 'data', 'mahasiswa', 'dosen'));
     }
 
     public function proses()
     {
-        return view('dosen.proses', ['title' => 'Proses Hasil Bimbingan']);
+        $data = Guidance::find($_GET['id']);
+        $title = 'Proses Hasil Bimbingan';
+        return view('dosen.proses', compact('title', 'data'));
     }
 }

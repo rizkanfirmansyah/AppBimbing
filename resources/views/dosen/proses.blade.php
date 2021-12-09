@@ -19,7 +19,8 @@
                     <!-- Card Body -->
                     <div class="card-body">
 
-                        <form>
+                        <form action="{{ route('approved-guidance') }}" method="post">
+                            @csrf
                             <div class="mb-3">
                                 <div class="form-row my-3">
                                     <div class="col-1">
@@ -29,7 +30,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        {{$data->mahasiswa->nama}}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -40,7 +41,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        {{$data->mahasiswa->npm}}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -51,7 +52,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        {{$data->title}}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -62,7 +63,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        {{$data->description}}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -73,7 +74,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        <a href="#" class="badge badge-primary p-2"><i class="fas fa-download"></i> Download</a>
+                                        <a href="{{ route('download') }}?q=files&id={{ $data->file }}" class="badge badge-primary p-2"><i class="fas fa-download"></i> Download</a>
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -85,6 +86,7 @@
                                     </div>
                                     <div class="col-12">
                                         <textarea name="keterangan" id="keterangan" cols="30" rows="5" class="form-control"></textarea>
+                                        <input type="hidden" name="id" value="{{$data->id}}">
                                     </div>
                                 </div>
                             </div>

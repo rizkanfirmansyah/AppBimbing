@@ -23,7 +23,7 @@ class AuthController extends Controller
         $user = ['name' => $request->name, 'password' => Hash::make($request->password)];
         $data = User::create($user);
 
-        $mahasiswa = ['nama' => $request->nama, 'jurusan' => $request->jurusan, 'user_id' => $data->id];
+        $mahasiswa = ['nama' => $request->nama, 'npm' => $request->name,  'jurusan' => $request->jurusan, 'user_id' => $data->id];
         Mahasiswa::create($mahasiswa);
 
         $request->session()->flash('success', 'User has been created! You can login now');

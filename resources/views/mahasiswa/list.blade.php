@@ -35,9 +35,9 @@
                                 <tbody>
                                     @foreach ($bimbingan as $item)
                                         <tr>
-                                            <td>13 January 2021</td>
-                                            <td>Javascript Developer</td>
+                                            <td>{{ $item->created_at }}</td>
                                             <td>{{ $item->title }}</td>
+                                            <td>{{ $item->description }}</td>
                                             <td><?php
                                             if ($item->status == 3) {
                                                 echo '<a class="badge badge-secondary"><i class="fas fa-user"></i> Waiting</a>';
@@ -49,7 +49,7 @@
                                                 echo '<a class="badge badge-danger"><i class="fas fa-times"></i> Reject</a>';
                                             } ?>
                                             </td>
-                                            <td><a href="{{route('hasil-bimbingan')}}" class="badge badge-primary"><i class="fas fa-eye"></i> Lihat Data</a></td>
+                                            <td><a href="{{route('hasil-bimbingan')}}?q={{ $item->title }}&id={{$item->id}}" class="badge badge-primary"><i class="fas fa-eye"></i> Lihat Data</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

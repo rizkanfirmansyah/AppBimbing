@@ -24,6 +24,8 @@ class GuidanceController extends Controller
 
     public function result()
     {
-        return view('mahasiswa.result', ['title' => 'Detail Hasil Bimbingan']);
+        $bimbingan = Guidance::find($_GET['id']);
+        $title = 'Detail Hasil Bimbingan';
+        return view('mahasiswa.result', compact('bimbingan', 'title'));
     }
 }

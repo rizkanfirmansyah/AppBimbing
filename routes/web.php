@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaController;
+use Facade\FlareClient\Http\Response;
 use Laravel\Jetstream\Rules\Role;
 
 /*
@@ -55,6 +56,7 @@ Route::group(['prefix' => 'dosen', 'middleware' => 'auth'], function () {
     Route::get('/list/bimbingan', [DosenController::class, 'list'])->name('list-bimbingan');
     Route::get('/mahasiswa/bimbingan', [DosenController::class, 'mahasiswa'])->name('mahasiswa-bimbingan');
     Route::get('/proses/bimbingan', [DosenController::class, 'proses'])->name('proses-bimbingan');
+    Route::post('/approved', [DosenController::class, 'approved'])->name('approved-guidance');
 });
 
 
@@ -66,6 +68,10 @@ Route::group(['prefix' => 'bimbingan', 'middleware' => 'auth'], function () {
 });
 
 Route::get('/redirects',  [HomeController::class, "index"]);
+Route::get('/download/file',  function () {
+    $file =$_GET['id'];
+    return response()->download(public_path("files/{$file}"));
+})->name('download');
 
 
 Route::get('/loginAdmin', function () {

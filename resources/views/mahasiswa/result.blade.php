@@ -29,7 +29,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        {{ $bimbingan->mahasiswa->nama }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -40,7 +40,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        {{ $bimbingan->title }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -51,7 +51,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        {{ $bimbingan->description }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -62,7 +62,11 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        @if ($bimbingan->dosen_id > 0)
+                                            {{ $bimbingan->dosen->nama }}
+                                        @else
+                                            Dosen Belum Ada
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -73,7 +77,11 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        @if ($bimbingan->description_dosen)
+                                            {{ $bimbingan->description_dosen }}
+                                        @else
+                                            Belum ada tanggapan
+                                        @endif
                                     </div>
                                 </div>
                             </div>
