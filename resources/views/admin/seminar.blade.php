@@ -28,8 +28,7 @@
                                         <th>Tanggal</th>
                                         <th>Nama</th>
                                         <th>Judul</th>
-                                        <th>Topik</th>
-                                        <th>Keterangan</th>
+                                        <th>Ruangan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -37,15 +36,13 @@
                                         <td>13 January 2021</td>
                                         <td>Ahmad Husein </td>
                                         <td>Javascript Developer</td>
-                                        <td>Singapore</td>
-                                        <td><a href="{{route('proses-bimbingan')}}" class="badge badge-primary"><i class="fas fa-eye"></i> Lihat Data</a></td>
+                                        <td>Ruang A</td>
                                     </tr>
                                     <tr>
                                         <td>13 January 2021</td>
                                         <td>Rizkan Firmansyah</td>
                                         <td>Customer Support</td>
-                                        <td>New York</td>
-                                        <td><a href="{{route('proses-bimbingan')}}" class="badge badge-primary"><i class="fas fa-eye"></i> Lihat Data</a></td>
+                                        <td>Ruang B</td>
                                     </tr>
                                 </tbody>
                             </table>
