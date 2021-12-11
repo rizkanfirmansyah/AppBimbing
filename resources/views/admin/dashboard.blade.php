@@ -98,8 +98,8 @@
                             <table class="table table-bordered" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Judul</th>
-                                        <th>Topik</th>
+                                        <th>Nama</th>
+                                        <th>Jurusan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -125,6 +125,25 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Username</th>
+                                        <th>Role</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($user as $item)
+                                        <tr>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ CheckRole($item->role) }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

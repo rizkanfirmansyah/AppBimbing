@@ -27,8 +27,8 @@ function whatRoutesActive()
 function CheckRole($id)
 {
     if($id==1) return 'Admin';
-    if($id==2) return 'Dosen';
-    if($id==3) return 'Mahasiswa';
+    else if($id==2) return 'Dosen';
+    else if($id==3) return 'Mahasiswa';
 }
 
 // function status($id)
