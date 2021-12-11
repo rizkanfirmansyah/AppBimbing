@@ -12,7 +12,7 @@ function whatRoutes()
         return route('dashboard-mahasiswa');
     } else if ($id == 2) {
         return route('dashboard-dosen');
-    }else{
+    } else {
         return route('dashboard-admin');
     }
 }
@@ -22,6 +22,13 @@ function whatRoutesActive()
     if (request()->routeIs('dashboard-mahasiswa') || request()->routeIs('dashboard-dosen') || route('dashboard-admin')) return 1;
 
     return 0;
+}
+
+function CheckRole($id)
+{
+    if($id==1) return 'Admin';
+    if($id==2) return 'Dosen';
+    if($id==3) return 'Mahasiswa';
 }
 
 // function status($id)

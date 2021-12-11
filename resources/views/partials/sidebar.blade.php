@@ -95,6 +95,20 @@
                 <i class="fas fa-fw fa-calendar-alt"></i>
                 <span>Data Seminar </span></a>
         </li>
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item {{ request()->routeIs('admin-dosen') ? 'active' : ' ' }}">
+            <a class="nav-link" href="{{ route('admin-dosen') }}">
+                <i class="fas fa-fw fa-user-tie"></i>
+                <span>Data Dosen </span></a>
+        </li>
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item {{ request()->routeIs('admin-users') ? 'active' : ' ' }}">
+            <a class="nav-link" href="{{ route('admin-users') }}">
+                <i class="fas fa-fw fa-user-cog"></i>
+                <span>Data User </span></a>
+        </li>
     @endif
 
     <!-- Divider -->

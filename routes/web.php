@@ -46,8 +46,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/bimbingan', [AdminController::class, 'bimbingan'])->name('admin-bimbingan');
     Route::get('/mahasiswa', [AdminController::class, 'mahasiswa'])->name('admin-mahasiswa');
     Route::get('/seminar', [AdminController::class, 'seminar'])->name('admin-seminar');
+    Route::get('/dosen', [AdminController::class, 'dosen'])->name('admin-dosen');
+    Route::get('/dosen_tambah', [AdminController::class, 'dosen_tambah'])->name('admin-dosen-tambah');
+    Route::get('/dosen_edit', [AdminController::class, 'dosen_edit'])->name('admin-dosen-edit');
+    Route::get('/dosen_hapus', [AdminController::class, 'dosen_hapus'])->name('admin-dosen-hapus');
+    Route::get('/user_tambah', [AdminController::class, 'user_tambah'])->name('admin-user-tambah');
+    Route::get('/user_edit', [AdminController::class, 'user_edit'])->name('admin-user-edit');
+    Route::get('/users', [AdminController::class, 'users'])->name('admin-users');
     Route::get('/result', [AdminController::class, 'result'])->name('admin-result');
     Route::post('/result_post', [AdminController::class, 'result_post'])->name('result-post');
+});
+
+Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
+    Route::post('/add', [AdminController::class, 'user_add'])->name('user-add');
+    Route::get('/delete', [AdminController::class, 'user_delete'])->name('user-delete');
+    Route::post('/edit', [AdminController::class, 'user_edit_confirm'])->name('user-edit');
 });
 
 

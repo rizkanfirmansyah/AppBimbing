@@ -7,8 +7,8 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">{{ $title }}</h1>
-            {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
+            {{-- <a href="{{ route('admin-dosen-tambah') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                    class="fas fa-plus fa-sm text-white-50"></i> Tambah Dosen</a> --}}
         </div>
 
 
@@ -26,19 +26,23 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Username</th>
                                         <th>Nama</th>
-                                        <th>NPM</th>
                                         <th>Jurusan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $i=1 ?>
-                                    @foreach ($bimbingan as $item)
+                                    @foreach ($dosen as $item)
                                         <tr>
                                             <td>{{$i}}</td>
-                                            <td>{{$item->mahasiswa->nama}}</td>
-                                            <td>{{$item->mahasiswa->npm}}</td>
-                                            <td>{{$item->mahasiswa->jurusan}}</td>
+                                            <td>{{$item->user->name}}</td>
+                                            <td>{{$item->nama}}</td>
+                                            <td>{{$item->jurusan}}</td>
+                                            {{-- <td>
+                                                <a href="{{ route('admin-dosen-edit') }}?id={{$item->id}}" class="badge badge-warning">Edit</a>
+                                                <a href="{{ route('admin-dosen-hapus') }}?id={{$item->id}}" class="badge badge-danger">Hapus</a>
+                                            </td> --}}
                                         </tr>
                                         <?php $i++ ?>
                                     @endforeach
