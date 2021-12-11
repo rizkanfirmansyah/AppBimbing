@@ -4,7 +4,8 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon">
-            <i class="fab fa-bimobject"></i>
+            {{-- <i class="fab fa-bimobject"></i> --}}
+            <img src="/images/logo.png" alt="Logo amik" class="img-fluid" style="max-width:40px">
         </div>
         <div class="sidebar-brand-text mx-3">App Bimbing <sup></sup></div>
     </a>
