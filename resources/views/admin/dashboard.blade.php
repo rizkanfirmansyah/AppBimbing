@@ -23,6 +23,34 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Judul</th>
+                                        <th>Topik</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($bimbingan as $item)
+                                        <tr>
+                                            <td>{{ $item->title }}</td>
+                                            <td><?php
+                                            if ($item->status == 3) {
+                                                echo '<a class="badge badge-secondary"><i class="fas fa-user"></i> Waiting</a>';
+                                            } elseif ($item->status == 2) {
+                                                echo '<a class="badge badge-warning"><i class="fas fa-clock"></i> process</a>';
+                                            } elseif ($item->status == 1) {
+                                                echo '<a class="badge badge-success"><i class="fas fa-check"></i> Approved</a>';
+                                            } else {
+                                                echo '<a class="badge badge-danger"><i class="fas fa-times"></i> Reject</a>';
+                                            } ?>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
