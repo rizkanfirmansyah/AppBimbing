@@ -12,12 +12,14 @@ function whatRoutes()
         return route('dashboard-mahasiswa');
     } else if ($id == 2) {
         return route('dashboard-dosen');
+    }else{
+        return route('dashboard-admin');
     }
 }
 
 function whatRoutesActive()
 {
-    if (request()->routeIs('dashboard-mahasiswa') || request()->routeIs('dashboard-dosen')) return 1;
+    if (request()->routeIs('dashboard-mahasiswa') || request()->routeIs('dashboard-dosen') || route('dashboard-admin')) return 1;
 
     return 0;
 }
