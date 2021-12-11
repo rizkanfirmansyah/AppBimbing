@@ -64,6 +64,22 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
+                        <table class="table table-bordered" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Nama</th>
+                                    <th>Jurusan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($bimbingan as $item)
+                                    <tr>
+                                        <td>{{ $item->mahasiswa->nama }}</td>
+                                        <td>{{ $item->mahasiswa->jurusan }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -78,6 +94,24 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Judul</th>
+                                        <th>Topik</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($dosen as $item)
+                                        <tr>
+                                            <td>{{ $item->nama }}</td>
+                                            <td>{{ $item->jurusan }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
