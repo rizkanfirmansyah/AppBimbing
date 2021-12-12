@@ -36,11 +36,12 @@
                                     @foreach ($data as $item)
                                         <tr>
                                             <td>{{ $item->created_at }}</td>
-                                            <td>{{ $item->mahasiswa->nama }}</td>
+                                            <td>{{ CheckMahasiswa($item->mahasiswa_id, $item) }}</td>
                                             <td>{{ $item->title }}</td>
                                             <td>{{ $item->description }}</td>
-                                            <td><a href="{{ route('proses-bimbingan') }}?data={{ Hash::make($item->title) }}&id={{ $item->id }}" class="badge badge-primary"><i
-                                                        class="fas fa-eye"></i> Lihat Data</a></td>
+                                            <td><a href="{{ route('proses-bimbingan') }}?data={{ Hash::make($item->title) }}&id={{ $item->id }}"
+                                                    class="badge badge-primary"><i class="fas fa-eye"></i> Lihat
+                                                    Data</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

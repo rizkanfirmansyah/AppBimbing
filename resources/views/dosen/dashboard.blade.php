@@ -102,9 +102,9 @@
                                 <tbody>
                                     @foreach ($mahasiswa as $item)
                                         <tr>
-                                            <td>{{ $item->mahasiswa->nama }}</td>
-                                            <td>{{ $item->mahasiswa->npm }}</td>
-                                            <td>{{ $item->mahasiswa->jurusan }}</td>
+                                            <td>{{ CheckMahasiswa($item->mahasiswa_id, $item) }}</td>
+                                            <td>{{ CheckMahasiswaNPM($item->mahasiswa_id, $item) }}</td>
+                                            <td>{{ CheckMahasiswaJurusan($item->mahasiswa_id, $item) }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

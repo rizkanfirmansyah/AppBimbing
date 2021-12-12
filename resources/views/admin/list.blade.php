@@ -48,7 +48,7 @@
                                     @foreach ($bimbingan as $item)
                                         <tr>
                                             <td>{{ $item->created_at }}</td>
-                                            <td>{{ $item->mahasiswa->nama }}</td>
+                                            <td>{{ CheckMahasiswa($item->mahasiswa_id, $item) }}</td>
                                             <td>{{ $item->title }}</td>
                                             <td>{{ $item->description }}</td>
                                             <td><?php

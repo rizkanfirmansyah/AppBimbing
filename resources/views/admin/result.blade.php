@@ -43,7 +43,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        {{ $data->mahasiswa->nama }}
+                                        {{ CheckMahasiswa($data->mahasiswa_id, $data) }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -54,7 +54,8 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        {{ $data->mahasiswa->npm }}
+                                        <td>
+                                            {{ CheckMahasiswaNPM($data->mahasiswa_id, $data) }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -90,7 +91,8 @@
                                         <select name="dosen" id="dosen" class="form-control">
                                             <option value disabled selected>Pilih Dosen Pembimbing</option>
                                             @foreach ($dosen as $item)
-                                                <option {{$data->dosen_id == $item->id ? 'selected' : ' '}} value="{{ $item->id }}">{{ $item->nama }}</option>
+                                                <option {{ $data->dosen_id == $item->id ? 'selected' : ' ' }}
+                                                    value="{{ $item->id }}">{{ $item->nama }}</option>
                                             @endforeach
                                         </select>
                                         <input type="hidden" name="id" value="{{ $_GET['id'] }}">

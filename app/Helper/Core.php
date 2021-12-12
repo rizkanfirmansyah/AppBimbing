@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Mahasiswa;
+
 function hello()
 {
     return 'hello';
@@ -26,9 +28,42 @@ function whatRoutesActive()
 
 function CheckRole($id)
 {
-    if($id==1) return 'Admin';
-    else if($id==2) return 'Dosen';
-    else if($id==3) return 'Mahasiswa';
+    if ($id == 1) return 'Admin';
+    else if ($id == 2) return 'Dosen';
+    else if ($id == 3) return 'Mahasiswa';
+}
+
+function CheckMahasiswa($id, $array)
+{
+    $mahasiswa = Mahasiswa::find($id);
+
+    if ($mahasiswa) {
+        return $array->mahasiswa->nama;
+    } else {
+        return 'Mahasiswa tidak terdaftar';
+    }
+}
+
+function CheckMahasiswaNPM($id, $array)
+{
+    $mahasiswa = Mahasiswa::find($id);
+
+    if ($mahasiswa) {
+        return $array->mahasiswa->npm;
+    } else {
+        return '-';
+    }
+}
+
+function CheckMahasiswaJurusan($id, $array)
+{
+    $mahasiswa = Mahasiswa::find($id);
+
+    if ($mahasiswa) {
+        return $array->mahasiswa->jurusan;
+    } else {
+        return '-';
+    }
 }
 
 // function status($id)
