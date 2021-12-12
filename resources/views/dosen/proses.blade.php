@@ -79,6 +79,21 @@
                                 </div>
                                 <div class="form-row my-3">
                                     <div class="col-1">
+                                        <label for="title" class="form-label text-dark"><strong>Status
+                                            </strong></label>
+                                    </div>
+                                    <div class="col-1">:
+                                    </div>
+                                    <div class="col-10">
+                                        <select name="status" id="status" class="form-control">
+                                            <option value disabled selected>==Pilih Status==</option>
+                                            <option value="1">Approve</option>
+                                            <option value="2">Reject</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row my-3">
+                                    <div class="col-1">
                                         <label for="title" class="form-label text-dark"><strong>Keterangan
                                             </strong></label>
                                     </div>

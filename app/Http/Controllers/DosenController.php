@@ -87,7 +87,7 @@ class DosenController extends Controller
     public function approved(Request $request)
     {
         //
-        $request->request->add(['status' => '1', 'description_dosen' => $request->keterangan]);
+        $request->request->add(['status' => $request->status, 'description_dosen' => $request->keterangan]);
         Guidance::find($request->id)->update($request->all());
         return redirect()->route('list-bimbingan');
     }
