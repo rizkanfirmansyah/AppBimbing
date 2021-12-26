@@ -23,10 +23,16 @@ use Laravel\Jetstream\Rules\Role;
 */
 
 Route::get('/', function () {
-    return view('awal', [
+    return view('index', [
         "title" => "Web Bimbingan Skripsi"
     ]);
 })->name('/');
+
+Route::get('/login', function () {
+    return view('login', [
+        "title" => "Login App"
+    ]);
+})->name('login');
 
 Route::get('/loginMahasiswa', function () {
     return view('mahasiswa/loginMahasiswa', ['title' => 'Login Mahasiswa']);

@@ -61,16 +61,71 @@
                             <!-- <input class="form-control me-5" type="search" placeholder="Search" aria-label="Search">
                             <button class=" btn-icon" type="submit"><img class="img-icon-search" src="/assets/img/search-svgrepo-com 1.png" alt=""></button> -->
 
-                            <a href="{{route('login')}}" class="py-2 px-4 btn btn-outline-primary me-3">Mahasiswa</a>
-                            <a href="{{route('login-dosen')}}" class="py-2 px-4 btn btn-primary me-3">Dosen</a>
+                            <a href="{{route('login')}}" class="py-2 px-4 btn btn-primary me-3">Mahasiswa</a>
+                            <a href="{{route('login-dosen')}}" class="py-2 px-4 btn btn-outline-primary me-3">Dosen</a>
                             <a href="{{route('login-admin')}}" class="py-2 px-4 btn btn-outline-primary">Admin</a>
                         </form>
 
                     </div>
                     <div class="col-md-6">
-                        <h2 class="text-white text-black text-center">Login Dosen</h2>
+                        <h2 class="text-white text-black text-center">Login Mahasiswa</h2>
                         <div class="tab-pane fade show active mt-4" id="mahasiswa-login" role="tabpanel"
                             aria-labelledby="mahasiswa-login">
+                            <div class="card border bg-transparent text-white">
+                                @if (session()->has('success'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{ session('success') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                @endif
+                                @if (session()->has('error'))
+
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{ session('error') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                @endif
+                                <div class="card-body">
+                                    <form action="{{ route('auth-login') }}" method="POST">
+                                        @csrf
+                                        <div class="mb-3">
+                                            <label for="username" class="form-label">Username :</label>
+                                            <input type="username"
+                                                class="form-control @error('username') is-invalid @enderror"
+                                                id="username" placeholder="Input NPM" name="username">
+                                            @error('username')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="password" class="form-label">Password:</label>
+                                            <input type="password"
+                                                class="form-control  @error('password') is-invalid @enderror"
+                                                id="password" placeholder="Enter password" name="password">
+                                            @error('password')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        {{-- <a class="btn btn-primary" href="/dashboardMahasiswa" role="button">Login</a> --}}
+                                        <button type="submit" class="btn btn-primary">Login</button>
+
+                                        <a href="{{ route('register') }}"
+                                            class="btn btn-link ms-auto text-end float-end"
+                                            style="color: white !important">Belum Punya Akun?</a>
+                                    </form>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="dosen-login" role="tabpanel" aria-labelledby="dosen-login-tab">.
                             <div class="card border bg-transparent text-white">
                                 @if (session()->has('success'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -123,6 +178,8 @@
 
                             </div>
                         </div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            ...</div>
 
 
                     </div>

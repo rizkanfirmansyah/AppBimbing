@@ -49,11 +49,11 @@ class AuthController extends Controller
                     return redirect()->route('dashboard-admin');
             } else {
                 $request->session()->flash('error', 'Username or password wrong, try again!');
-                return redirect()->route('login-mahasiswa');
+                return redirect()->back();
             }
         } else {
             $request->session()->flash('error', 'User not registered, please register!');
-            return redirect()->route('login-mahasiswa');
+            return redirect()->back();
         }
     }
 

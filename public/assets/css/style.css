@@ -1,0 +1,133 @@
+@font-face {
+    font-family: poppinsBold;
+    src: url(../fonts/Poppins/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: nunitoReguler;
+    src: url(../fonts/Nunito/Nunito-Regular.ttf);
+}
+
+@font-face {
+    font-family: nunitoBold;
+    src: url(../fonts/Nunito/Nunito-Bold.ttf);
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white !important;
+    opacity: 1; /* Firefox */
+  }
+
+  #nav-tab .nav-link{
+    color:white !important;
+  }
+
+  #nav-tab .active{
+    color:blue !important;
+  }
+
+body {
+    margin:0;
+    padding:0;
+    font-family: nunitoReguler;
+    background: linear-gradient(249.64deg, #285CCF 31.45%, #000000 135.23%);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /* height: max-content; */
+}
+
+
+.main .navbar-brand{
+    font-family: poppinsBold !important;
+    color: #ffffff !important;
+}
+.main{
+    margin-top: 10px;
+}
+
+.main .img-nav{
+    max-width: 25px;
+    margin-left: 10px;
+}
+
+.main a.nav-link#active{
+    font-family: nunitoBold !important;
+    color: #ffffff !important;
+}
+
+.main a.nav-link{
+    font-family: nunitoBold !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.section{
+    margin-top: 100px;
+    margin-bottom: 250px;
+}
+
+.section .subtitle-jumbotron{
+    font-family: nunitoBold;
+    font-size: 26px ;
+    color: #70DDF5;
+}
+
+.section .title-jumbotron{
+    font-family: nunitoBold;
+    font-size: 48px;
+    color: #ffffff;
+}
+
+.section .paragraph-jumbotron{
+    font-family: nunitoReguler;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.section .img-icon-search{
+    width: 33px;
+}
+
+.section .img-fluid{
+    font-size: 300px;
+    margin-left: 150px !important;
+}
+
+.section .btn-icon{
+    /* position: absolute; */
+   margin-left: -110px;
+   background-color: transparent !important;
+   border: transparent;
+}
+
+.section input{
+    background-color: transparent !important;
+    padding: 15px;
+    width: 512px;
+}
+
+.register {
+    margin-top: -70px;
+}
+
+@media  only screen and (max-width:765px) {
+
+.register {
+    margin-top: 20px;
+}
+
+    .section .img-fluid{
+        display:none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

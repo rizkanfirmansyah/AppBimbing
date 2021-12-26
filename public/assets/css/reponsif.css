@@ -1,0 +1,172 @@
+/*
+##Device = Desktop large
+##Screen = 1600px higher resolution desktops
+*/
+
+@media (min-width: 1600px) {
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1367px) and (max-width: 1599px) {
+<<<<<<< HEAD
+  .header-list-text{
+    margin-top: 9rem;
+  }
+=======
+  
+>>>>>>> bc208202805662d45ee10732f93ac6fb27e0f987
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1366px) {
+<<<<<<< HEAD
+  .header-list-text{
+    margin-top: 9rem;
+  }
+=======
+>>>>>>> bc208202805662d45ee10732f93ac6fb27e0f987
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+<<<<<<< HEAD
+  .header-list-text{
+    margin-top: 9rem;
+  }
+  .list-item .list-item-text{
+    padding: 0px !important;
+  }
+  .list-item-text h3{
+    font-size: x-large;
+  }
+  .list-item-text h6{
+    font-size: .9rem;
+  }
+  .list-item-text #short-green-line{
+    width: 6.5rem;
+  }
+=======
+  
+>>>>>>> bc208202805662d45ee10732f93ac6fb27e0f987
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 876px) {
+  
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  #header-detail {
+    margin-top: 0rem;
+  }
+  .jumbotron-detail{
+    margin-top: 0rem;
+  }
+  .header-detail {
+    margin-bottom: 24rem;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #header-detail {
+    margin-top: 5rem;
+  }
+  .jumbotron-detail{
+    margin-top: 0rem;
+  }
+  .header-detail {
+    margin-bottom: 29rem;
+  }
+  .item-khasiat .my-5{
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .item-khasiat{
+    margin-top: 0rem;
+    margin-bottom: 3rem;
+  }
+  .img-khasiat {
+    width: 100%;
+  }
+  #myChart {
+    width: 200px !important;
+    height: 200px !important;
+  }
+  .col-md-5.p-5.mt-5{
+    padding: 1rem !important;
+    margin-top: 0rem !important;
+  }
+  .warpper-detail{
+    top: 100px;
+  }
+  .banner #banner{
+    margin-top: 1rem;
+  }
+  .list-khasiat {
+    height: 3.5rem;
+  }
+<<<<<<< HEAD
+
+  /* list item */
+  .header-list{
+    margin-bottom: 12rem;
+  }
+  .header-list-text{
+    margin-top: 5rem;
+  }
+  .bg-header-list{
+    padding: 1rem;
+  }
+  .header-list-cta{
+    margin-top: 2rem;
+  }
+  .tags-list .form-select{
+    width: 7rem !important;
+    margin-bottom: .5rem;
+  }
+  .tags-list .btn-primary-plant{
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+  }
+  .tags-list .btn-primary-plant.me-3{
+    margin-right: 0rem !important;
+  }
+  .header-list-cta .form-control{
+    font-size: 1rem;
+  }
+  .list-item .list-item-text{
+    padding: 0px !important;
+  }
+=======
+>>>>>>> bc208202805662d45ee10732f93ac6fb27e0f987
+}
