@@ -1,0 +1,37 @@
+Tampilan Utama
++ LOGO KAMPUS AMIK
++ ICON OPSI LOGIN DI GANTI & BUTTON DI UBAH
++ TAMBAH BAGROUND DASBOARD
++ KETERANGAN DASHOARD WEB BIMBINGAN
+	keterangan tentang Proses bimbingan skripsi
++ BEDAKAN HALAMAN HOME DAN WEB BIMBINGAN
+
+MAHASISWA
+Dashboard utama Mahasiswa -diganti- Tidak menampilkan hasil di halaman Utama
+Dashboard Mahasiswa
+	Hasil bimbingan -diganti- Keterangan Dosen Pembimbing
+ -diganti-
+
+
+
+DOSEN
+Dashboard utama Dosen-->Tidak perlu menampilkan hasil di halaman Utama
+Penambahan Dashboard di Dosen
+	Tabel data -diganti- Tabel data Mahasiswa
+Dashboard Data dosen---> tambah alamat dosen
+			----> hapus role untuk mahasiwa, hanya untuk dosen saja
+			----> jurusan sesuai dengan jurusan dosen/ gelar
+			----> tambah dasboard riport data
+
+
+ADMIN
+# Dashboard utama Admin -diganti- Tidak perlu menampilkan hasil di halaman Utama
+# Tabel Data -diganti- Penambahan tabel NPM mahasiswa
+Dashboard admin Data seminar -diganti- 	Tambah button input seminar
+				Tambah NPM mahasiswa pada tabel
+				Input Nama Ruangan
+
+
+Ubah jika salah masuk kembali kehalaman opsi login sebagai < M-D-A>
+JIka salah memasukan username dan password -> dont back to dashboard login Mahasiswa
+MEMBUAT RIPORT UNTUK PRINT LAPORAN DATA KETERANGN SEMUA DARI DASHBOARD ADMIN
