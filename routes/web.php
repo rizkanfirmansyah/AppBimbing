@@ -91,7 +91,7 @@ Route::group(['prefix' => 'seminar', 'middleware' => 'auth'], function () {
     Route::get('/create', [SeminarController::class, 'create'])->name('create-seminar');
     Route::get('/edit/{id}', [SeminarController::class, 'edit'])->name('edit-seminar');
     Route::post('/store', [SeminarController::class, 'store'])->name('store-seminar');
-    Route::post('/update', [SeminarController::class, 'update'])->name('update-seminar');
+    Route::post('/update/{id}', [SeminarController::class, 'update'])->name('update-seminar');
     Route::get('/destroy/{id}', [SeminarController::class, 'destroy'])->name('destroy-seminar');
 });
 

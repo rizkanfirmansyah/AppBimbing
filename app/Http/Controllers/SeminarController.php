@@ -69,7 +69,7 @@ class SeminarController extends Controller
     {
         $seminar = Seminar::find($id);
         $title = 'Input Data Seminar';
-        return view('admin.seminar.create', compact('title'));
+        return view('admin.seminar.edit', compact('title', 'seminar', 'id'));
     }
 
     /**
@@ -81,7 +81,19 @@ class SeminarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'speaker' => 'required',
+            'ruangan' => 'required',
+            'max' => 'required',
+        ]);
+        if(!empty($id)){
+            $data = Seminar::find($id);
+            $data->update($request->all());
+            return redirect()->route('admin-seminar')->with('success', 'Seminar berhasil diperbaharui! ');
+        }else{
+            return redirect()->route('admin-seminar')->with('error', 'Seminar gagal diperbaharui! ');
+        }
     }
 
     /**

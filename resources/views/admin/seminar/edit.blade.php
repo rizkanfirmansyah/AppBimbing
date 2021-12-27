@@ -32,7 +32,7 @@
                     <!-- Card Body -->
                     <div class="card-body">
 
-                        <form method="post" action="{{ route('store-seminar') }}">
+                        <form method="post" action="{{ route('update-seminar', $id) }}">
                             @csrf
                             <div class="mb-3">
                                 <div class="form-row my-3">
@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="col-10">
                                         <input type="text" name="title"
-                                            class="form-control @error('title') is-invalid @enderror" />
+                                            value="{{$seminar->title}}" class="form-control @error('title') is-invalid @enderror" />
                                         @error('title')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -62,7 +62,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        <input type="text" name="speaker" class="form-control @error('speaker') is-invalid @enderror" />
+                                        <input type="text" name="speaker" value="{{$seminar->speaker}}" class="form-control @error('speaker') is-invalid @enderror" />
                                         @error('speaker')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -82,7 +82,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        <textarea type="text" name="description" class="form-control"></textarea>
+                                        <textarea type="text" name="description" value="{{$seminar->description}}" class="form-control">{{$seminar->description}}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -94,7 +94,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-4">
-                                        <input type="text" name="ruangan" class="form-control @error('ruangan') is-invalid @enderror" />
+                                        <input type="text" name="ruangan" value="{{$seminar->ruangan}}" class="form-control @error('ruangan') is-invalid @enderror" />
                                         @error('ruangan')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -109,7 +109,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-4">
-                                        <input type="number" name="max" class="form-control @error('max') is-invalid @enderror" />
+                                        <input type="number" name="max" value="{{$seminar->max}}" class="form-control @error('max') is-invalid @enderror" />
                                         @error('max')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -126,7 +126,7 @@
                                     <div class="col-1">:
                                     </div>
                                     <div class="col-4">
-                                        <input type="date" name="date" id="date" class="form-control">
+                                        <input type="date" name="date" id="date" value="{{$seminar->date}}" class="form-control">
 
                                     </div>
                                     <div class="col-1">
@@ -137,7 +137,7 @@
                                     <div class="col-1">:
                                     </div>
                                     <div class="col-4">
-                                        <select name="status" id="status" class="form-control">
+                                        <select name="status" id="status" value="{{$seminar->status}}" class="form-control">
                                             <option value disabled selected>Pilih Status</option>
                                             <option value="2">Draft</option>
                                             <option value="1">Done</option>
