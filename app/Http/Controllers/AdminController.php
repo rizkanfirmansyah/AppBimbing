@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Dosen;
 use App\Models\Guidance;
 use App\Models\Mahasiswa;
+use App\Models\Seminar;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -140,7 +141,9 @@ class AdminController extends Controller
 
     public function seminar()
     {
-        return view('admin.seminar', ['title' => 'Data Seminar']);
+        $title = 'Data Seminar';
+        $seminar = Seminar::all();
+        return view('admin.seminar', compact('title', 'seminar'));
     }
 
     public function result()

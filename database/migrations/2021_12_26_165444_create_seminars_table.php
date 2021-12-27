@@ -15,6 +15,15 @@ class CreateSeminarsTable extends Migration
     {
         Schema::create('seminars', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 255);
+            $table->string('speaker', 255);
+            $table->char('ruangan', 125);
+            $table->char('max', 50);
+            $table->timestamp('date')->nullable();
+            $table->timestamp('end_date')->nullable();
+            $table->enum('status', ['0', '1', '2'])->nullable();
+            $table->text('description')->nullable();
+            $table->char('created_by')->nullable();
             $table->timestamps();
         });
     }

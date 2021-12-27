@@ -1,0 +1,102 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Seminar;
+use Illuminate\Http\Request;
+
+class SeminarController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $title = 'Input Data Seminar';
+        return view('admin.seminar.create', compact('title'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'speaker' => 'required',
+            'ruangan' => 'required',
+            'max' => 'required',
+        ]);
+
+        Seminar::create($request->all());
+        $request->session()->flash('success', 'Seminar berhasil dibuat! ');
+        return redirect()->route('admin-seminar');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $seminar = Seminar::find($id);
+        $title = 'Input Data Seminar';
+        return view('admin.seminar.create', compact('title'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        if(!empty($id)){
+            Seminar::find($id)->delete();
+            return redirect()->route('admin-seminar')->with('success', 'Seminar berhasil dihapus! ');
+        }else{
+            return redirect()->route('admin-seminar')->with('error', 'Seminar gagal dihapus! ');
+        }
+    }
+}

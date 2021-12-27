@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\SeminarController;
 use Facade\FlareClient\Http\Response;
 use Laravel\Jetstream\Rules\Role;
 
@@ -84,6 +85,14 @@ Route::group(['prefix' => 'bimbingan', 'middleware' => 'auth'], function () {
     Route::get('/data', [GuidanceController::class, 'list'])->name('data-bimbingan');
     Route::get('/hasil', [GuidanceController::class, 'result'])->name('hasil-bimbingan');
     Route::post('/insert', [MahasiswaController::class, 'create'])->name('insert-bimbingan');
+});
+
+Route::group(['prefix' => 'seminar', 'middleware' => 'auth'], function () {
+    Route::get('/create', [SeminarController::class, 'create'])->name('create-seminar');
+    Route::get('/edit/{id}', [SeminarController::class, 'edit'])->name('edit-seminar');
+    Route::post('/store', [SeminarController::class, 'store'])->name('store-seminar');
+    Route::post('/update', [SeminarController::class, 'update'])->name('update-seminar');
+    Route::get('/destroy/{id}', [SeminarController::class, 'destroy'])->name('destroy-seminar');
 });
 
 Route::get('/redirects',  [HomeController::class, "index"]);

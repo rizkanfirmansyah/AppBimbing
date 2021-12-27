@@ -15,7 +15,7 @@
         <div class="row">
 
             <!-- Area Chart -->
-            <div class="col-xl-6 col-lg-6">
+            {{-- <div class="col-xl-6 col-lg-6">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -53,10 +53,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Pie Chart -->
-            <div class="col-xl-6 col-lg-6">
+            <div class="col-xl-12 col-lg-12">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -67,16 +67,22 @@
                         <table class="table table-bordered" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Nama</th>
                                     <th>Jurusan</th>
+                                    <th>NPM</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php $i = 1;?>
                                 @foreach ($bimbingan as $item)
                                     <tr>
+                                        <td>{{ $i }}</td>
                                         <td>{{ CheckMahasiswa($item->mahasiswa_id, $item) }}</td>
                                         <td>{{ CheckMahasiswaJurusan($item->mahasiswa_id, $item) }}</td>
+                                        <td>{{ CheckMahasiswaNPM($item->mahasiswa_id, $item) }}</td>
                                     </tr>
+                                    <?php $i++;?>
                                 @endforeach
                             </tbody>
                         </table>

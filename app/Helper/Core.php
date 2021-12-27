@@ -66,6 +66,17 @@ function CheckMahasiswaJurusan($id, $array)
     }
 }
 
+function SpeakerSeminar($data){
+    $item = explode(',', $data);
+    $speaker = '';
+
+    foreach ($item as $key => $value) {
+        $speaker .= ''.$value .' ';
+    }
+
+    return $speaker;
+}
+
 // function status($id)
 // {
 //     if ($id === 2) return `<a class="badge badge-warning"><i class="fas fa-clock"></i> Waiting</a>`;

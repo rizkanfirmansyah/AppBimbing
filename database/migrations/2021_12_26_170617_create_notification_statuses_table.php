@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePesertaSeminarsTable extends Migration
+class CreateNotificationStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreatePesertaSeminarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('peserta_seminars', function (Blueprint $table) {
+        Schema::create('notification_statuses', function (Blueprint $table) {
             $table->id();
-            $table->char('seminar_id', 50);
-            $table->string('nama', 255);
-            $table->string('ticket', 255)->nullable();
-            $table->string('instansi', 255)->nullable();
-            $table->string('sosmed', 255)->nullable();
+            $table->char('notification_id');
+            $table->char('username');
+            $table->char('status');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreatePesertaSeminarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('peserta_seminars');
+        Schema::dropIfExists('notification_statuses');
     }
 }
