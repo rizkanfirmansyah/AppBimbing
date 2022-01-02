@@ -22,46 +22,46 @@
                         <form>
                             <div class="mb-3">
                                 <div class="form-row my-3">
-                                    <div class="col-1">
+                                    <div class="col-2">
                                         <label for="title" class="form-label text-dark"><strong>Nama
                                             </strong></label>
                                     </div>
                                     <div class="col">:
                                     </div>
-                                    <div class="col-10">
+                                    <div class="col-9">
                                         {{ $bimbingan->mahasiswa->nama }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
-                                    <div class="col-1">
+                                    <div class="col-2">
                                         <label for="title" class="form-label text-dark"><strong>Judul
                                             </strong></label>
                                     </div>
                                     <div class="col">:
                                     </div>
-                                    <div class="col-10">
+                                    <div class="col-9">
                                         {{ $bimbingan->title }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
-                                    <div class="col-1">
+                                    <div class="col-2">
                                         <label for="title" class="form-label text-dark"><strong>Topik
                                             </strong></label>
                                     </div>
                                     <div class="col">:
                                     </div>
-                                    <div class="col-10">
+                                    <div class="col-9">
                                         {{ $bimbingan->description }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
-                                    <div class="col-1">
+                                    <div class="col-2">
                                         <label for="title" class="form-label text-dark"><strong>Dosen Pembimbing
                                             </strong></label>
                                     </div>
                                     <div class="col">:
                                     </div>
-                                    <div class="col-10">
+                                    <div class="col-9">
                                         @if ($bimbingan->dosen_id > 0)
                                             {{ $bimbingan->dosen->nama }}
                                         @else
@@ -70,13 +70,13 @@
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
-                                    <div class="col-1">
-                                        <label for="title" class="form-label text-dark"><strong>Hasil Bimbingan
+                                    <div class="col-2">
+                                        <label for="title" class="form-label text-dark"><strong>Keterangan Dosen Bimbingan
                                             </strong></label>
                                     </div>
                                     <div class="col">:
                                     </div>
-                                    <div class="col-10">
+                                    <div class="col-9">
                                         @if ($bimbingan->description_dosen)
                                             {{ $bimbingan->description_dosen }}
                                         @else

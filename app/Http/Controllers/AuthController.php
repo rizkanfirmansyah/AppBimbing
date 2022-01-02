@@ -62,11 +62,11 @@ class AuthController extends Controller
         $id = auth()->user()->role;
         Auth::logout();
         if ($id == 3)
-            return redirect()->route('login-mahasiswa');
+            return redirect()->route('login');
         else if ($id == 2)
-            return redirect()->route('login-dosen');
+            return redirect()->route('login');
         else
-            return redirect()->route('login-admin');
+            return redirect()->route('login');
     }
 
     public function password(Request $request)

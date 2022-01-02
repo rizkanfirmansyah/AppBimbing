@@ -33,19 +33,8 @@
                         <div class="col-md-6">
 
                             <h2 class="subtitle-jumbotron mb-3">App Bimbing</h2>
-                            <h1 class="title-jumbotron mb-3">MUDAH BIMBINGAN LEWAT APLIKASI SECARA ONLINE</h1>
-                            <p class="paragraph-jumbotron mb-4">Buathlah laporan bimbingan mu dengan mudah bersama app
-                                bimbing kami secara online. Hubungi dosen dan bagian admin kampus dengan mudah lewat
-                                virtual dan data digital</p>
-
-                            <form class="d-flex me-5">
-                                <!-- <input class="form-control me-5" type="search" placeholder="Search" aria-label="Search">
-                            <button class=" btn-icon" type="submit"><img class="img-icon-search" src="/assets/img/search-svgrepo-com 1.png" alt=""></button> -->
-
-                                <a href="{{ route('login') }}" class="py-2 px-4 btn btn-primary me-3">Daftar
-                                    Sekarang</a>
-                                <a href="{{route('information')}}}" class="py-2 px-4 btn btn-outline-primary">Informasi lanjut</a>
-                            </form>
+                            <h1 class="title-jumbotron mb-3">ABOUT US</h1>
+                            <p class="paragraph-jumbotron mb-4" style="text-align: justify">Apa sih App Bimbing ini? App Bimbing atau Aplikasi pembuatan bimbingan online ini merupakan sistem aplikasi yang menyediakan proses bimbingan secara online oleh pihak kampus baik admin, mahasiswa maupun dosen bimbingan tersebut. Dengan aplikasi bimbingan ini anda tidak perlu ke kampus atau menyerahkan laporan bimbingan secara hardfile atau print hasil laporan tersebut.</p>
 
                         </div>
                         <div class="col-md-6">

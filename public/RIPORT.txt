@@ -27,7 +27,7 @@ Dashboard Data dosen---> tambah alamat dosen
 ADMIN
 # Dashboard utama Admin -diganti- Tidak perlu menampilkan hasil di halaman Utama
 # Tabel Data -diganti- Penambahan tabel NPM mahasiswa
-Dashboard admin Data seminar -diganti- 	Tambah button input seminar
+# Dashboard admin Data seminar -diganti- 	Tambah button input seminar
 				Tambah NPM mahasiswa pada tabel
 				Input Nama Ruangan
 

@@ -168,4 +168,10 @@ class AdminController extends Controller
         $request->session()->flash('error', 'Pengajuan bimbingan gagal diperbaharui, pilih dosen terlebih dahulu!');
         return redirect()->back();
     }
+
+    public function linkTo($id)
+    {
+        $link = linkTo('notification', $id);
+        return redirect($link);
+    }
 }

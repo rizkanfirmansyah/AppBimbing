@@ -29,6 +29,20 @@ Route::get('/', function () {
     ]);
 })->name('/');
 
+Route::get('/information', function () {
+    return view('home.information', [
+        "title" => "Information Web Bimbingan Skripsi"
+    ]);
+})->name('information');
+
+Route::get('/about', function () {
+    return view('home.about', [
+        "title" => "About Us | Web Bimbingan Skripsi"
+    ]);
+})->name('about');
+
+Route::get('/linkTo/{id}', [AdminController::class, 'linkTo'])->name('link-to');
+
 Route::get('/login', function () {
     return view('login', [
         "title" => "Login App"

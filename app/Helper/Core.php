@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Mahasiswa;
+use App\Models\Notification;
+use App\Models\NotificationStatus;
 
 function hello()
 {
@@ -66,15 +68,69 @@ function CheckMahasiswaJurusan($id, $array)
     }
 }
 
-function SpeakerSeminar($data){
+function SpeakerSeminar($data)
+{
     $item = explode(',', $data);
     $speaker = '';
 
     foreach ($item as $key => $value) {
-        $speaker .= ''.$value .' ';
+        $speaker .= '' . $value . ' ';
     }
 
     return $speaker;
+}
+
+function Notification($from, $to, $data)
+{
+    $data = [
+        'to' => $to,
+        'from' => $from,
+        'role' => $data['role'] ? $data['role'] : null,
+        'type' => $data['type'] ? $data['type'] : null,
+        'title' => $data['title'] ? $data['title'] : null,
+        'description' => $data['description'] ? $data['description'] : null,
+        'status' => $data['status'] ? $data['status'] : 'acceptable',
+        'link' => $data['link'] ? $data['link'] : null,
+    ];
+    Notification::create($data);
+}
+
+function NotifUsers()
+{
+    $data = Notification::where('to', auth()->user()->name)->get();
+    return $data;
+}
+
+function NotifCount()
+{
+        return Notification::where('to', auth()->user()->name)->count();
+}
+
+function CheckStatusNotif($id)
+{
+    $status = NotificationStatus::find($id);
+
+    if ($status) {
+        $status = 'text-muted';
+    } else {
+        $status = 'font-weight-bold';
+    }
+
+    return $status;
+}
+
+function linkTo($param, $id)
+{
+    if ($param == 'notification') {
+        $notif = NotificationStatus::where('notification_id', $id)->where('username', auth()->user()->name)->get();
+        if ($notif->count() < 1) {
+            $data = ['notification_id' => $id, 'username' => auth()->user()->name, 'status' => 'read'];
+            NotificationStatus::create($data);
+        }
+    }
+    $link = Notification::find($id)->link;
+    // dd($link);
+    return $link;
 }
 
 // function status($id)
