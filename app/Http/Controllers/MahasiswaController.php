@@ -46,7 +46,7 @@ class MahasiswaController extends Controller
         $request->file('formFile')->move(public_path('files'), $filename);
         $request->request->add(['mahasiswa_id' => Mahasiswa::where('user_id', auth()->user()->id)->get()[0]->id, 'file' => $filename]);
         $guidance = Guidance::create($request->all());
-        Notification(auth()->user()->name, 'admin', ['title' => 'Pengajuan Bimbingan Mahasiswa Baru', 'description' => 'Pengajuan Bimbingan Mahasiswa Baru', 'status' => 'action', 'role' => 'personal', 'type' => 'notification', 'link' => 'admin/result?data='. $request->title .'&id='. $guidance->id]);
+        Notification(auth()->user()->name, 'admin', ['title' => 'Pengajuan Bimbingan Mahasiswa Baru', 'description' => 'Pengajuan Bimbingan Mahasiswa Baru', 'status' => 'action', 'role' => 'personal', 'type' => 'notification', 'link' => '/admin/result?data='. $request->title .'&id='. $guidance->id]);
         $request->session()->flash('success', 'Pengajuan telah dibuat, tunggu hasil bimbingan!');
         return redirect()->route('pengajuan-bimbingan');
     }

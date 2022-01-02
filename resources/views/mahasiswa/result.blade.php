@@ -29,18 +29,19 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-9">
-                                        {{ $bimbingan->mahasiswa->nama }}
+                                        {{ CheckMahasiswa($bimbingan->mahasiswa_id, $bimbingan) }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
-                                    <div class="col-2">
-                                        <label for="title" class="form-label text-dark"><strong>Judul
+                                    <div class="col-1">
+                                        <label for="title" class="form-label text-dark"><strong>NPM
                                             </strong></label>
                                     </div>
                                     <div class="col">:
                                     </div>
                                     <div class="col-9">
-                                        {{ $bimbingan->title }}
+                                        <td>
+                                            {{ CheckMahasiswaNPM($bimbingan->mahasiswa_id, $bimbingan) }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">

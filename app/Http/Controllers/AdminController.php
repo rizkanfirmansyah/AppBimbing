@@ -161,7 +161,11 @@ class AdminController extends Controller
                 'dosen_id' => $request->dosen,
                 'status' => '2',
             ];
+            $guidance = Guidance::find($request->id);
             Guidance::find($request->id)->update($data);
+            $dosen = Dosen::find($data['dosen_id']);
+            $user = User::find($dosen['user_id']);
+            Notification(auth()->user()->name, $user->name, ['title' => 'Pengajuan Bimbingan Kepada Dosen', 'description' => 'Pengajuan Bimbingan Mahasiswa Kepada Dosen', 'status' => 'action', 'role' => 'personal', 'type' => 'notification', 'link' => '/dosen/proses/bimbingan?data='. $guidance->title .'&id='. $guidance->id]);
             $request->session()->flash('success', 'Pengajuan bimbingan sukses diperbaharui!');
             return redirect()->route('admin-bimbingan');
         }

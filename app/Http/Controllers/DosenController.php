@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Dosen;
 use App\Models\Guidance;
+use App\Models\Mahasiswa;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -89,6 +91,15 @@ class DosenController extends Controller
         //
         $request->request->add(['status' => $request->status, 'description_dosen' => $request->keterangan]);
         Guidance::find($request->id)->update($request->all());
+        $guidance = Guidance::find($request->id);
+        $mahasiswa = Mahasiswa::find($guidance->mahasiswa_id);
+        $user = User::find($mahasiswa->user_id);
+        if($request->status == 1){
+            $title = 'Selamat bimbingan berhasil di Setujui';
+        }else{
+            $title = 'Maaf, bimbingan ditolak. Coba lagi!';
+        }
+        Notification(auth()->user()->name, $user->name, ['title' => $title, 'description' => $request->keterangan ? $request->keterangan : 'tidak ada keterangan', 'status' => 'action', 'role' => 'personal', 'type' => 'notification', 'link' => '/bimbingan/hasil?data='. $guidance->title .'&id='. $guidance->id]);
         return redirect()->route('list-bimbingan');
     }
 

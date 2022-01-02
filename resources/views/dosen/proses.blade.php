@@ -30,7 +30,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        {{$data->mahasiswa->nama}}
+                                        {{CheckMahasiswa($data->mahasiswa_id, $data) }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -41,7 +41,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        {{$data->mahasiswa->npm}}
+                                        {{CheckMahasiswaNPM($data->mahasiswa_id, $data) }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
