@@ -17,6 +17,18 @@
 CREATE DATABASE IF NOT EXISTS `web_bimbingan` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `web_bimbingan`;
 
+-- Dumping structure for table web_bimbingan.detail_seminars
+CREATE TABLE IF NOT EXISTS `detail_seminars` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table web_bimbingan.detail_seminars: ~0 rows (approximately)
+/*!40000 ALTER TABLE `detail_seminars` DISABLE KEYS */;
+/*!40000 ALTER TABLE `detail_seminars` ENABLE KEYS */;
+
 -- Dumping structure for table web_bimbingan.dosens
 CREATE TABLE IF NOT EXISTS `dosens` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -29,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `dosens` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table web_bimbingan.dosens: ~2 rows (approximately)
+-- Dumping data for table web_bimbingan.dosens: ~3 rows (approximately)
 /*!40000 ALTER TABLE `dosens` DISABLE KEYS */;
 INSERT INTO `dosens` (`id`, `user_id`, `nama`, `description`, `jurusan`, `created_at`, `updated_at`) VALUES
 	(1, '3', 'Ahmad Komar', 'adwdawdwa', 'Teknik Komputer', NULL, NULL),
@@ -68,12 +80,13 @@ CREATE TABLE IF NOT EXISTS `guidances` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table web_bimbingan.guidances: ~1 rows (approximately)
 /*!40000 ALTER TABLE `guidances` DISABLE KEYS */;
 INSERT INTO `guidances` (`id`, `mahasiswa_id`, `dosen_id`, `title`, `description`, `file`, `status`, `description_dosen`, `memo`, `created_at`, `updated_at`) VALUES
-	(4, '2', '1', 'Cara membuat website dinamis', 'Cara membuat website dinamis yang keren dan juga bisa dihandalkan secara user dan interface\\', '1639059405687-db_puskesmas_padaherang.sql', '1', 'sudah sangat bagus', NULL, '2021-12-09 14:16:45', '2021-12-09 14:43:47');
+	(4, '7', '2', 'Cara membuat website dinamis', 'Cara membuat website dinamis yang keren dan juga bisa dihandalkan secara user dan interface\\', '1639059405687-db_puskesmas_padaherang.sql', '1', 'selamat anda berhasil', NULL, '2021-12-09 14:16:45', '2022-01-02 03:36:37'),
+	(5, '7', '1', 'cara ,embuay', 'awdawdawd', '1639315811524-Screenshot_2021-11-23_16_03_49.png', '1', 'wadawdawdawd', NULL, '2021-12-12 13:30:11', '2021-12-12 16:16:14');
 /*!40000 ALTER TABLE `guidances` ENABLE KEYS */;
 
 -- Dumping structure for table web_bimbingan.mahasiswas
@@ -86,16 +99,16 @@ CREATE TABLE IF NOT EXISTS `mahasiswas` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table web_bimbingan.mahasiswas: ~3 rows (approximately)
+-- Dumping data for table web_bimbingan.mahasiswas: ~5 rows (approximately)
 /*!40000 ALTER TABLE `mahasiswas` DISABLE KEYS */;
 INSERT INTO `mahasiswas` (`id`, `npm`, `user_id`, `nama`, `jurusan`, `created_at`, `updated_at`) VALUES
 	(1, '2143441', '1', 'Rizkan', 'Sistem Informasi', '2021-12-08 08:51:43', '2021-12-08 08:51:43'),
-	(2, '2143441', '2', 'Ahmad solehudin', 'Teknik Informatika', '2021-12-08 08:51:59', '2021-12-11 16:50:01'),
 	(3, '2143443', '3', 'Dosen Amarudin', 'Sistem Informasi', '2021-12-08 08:52:13', '2021-12-08 08:52:13'),
 	(4, '121212', '4', 'Rizkan Aprianda Firmansyah', 'Teknik Informatika', '2021-12-11 14:20:17', '2021-12-11 14:20:17'),
-	(5, '202021', '5', 'apa aja', 'Teknik Informatika', '2021-12-11 16:14:17', '2021-12-11 16:48:41');
+	(5, '202021', '5', 'apa aja', 'Teknik Informatika', '2021-12-11 16:14:17', '2021-12-11 16:48:41'),
+	(7, '214431', '13', 'Rizkan Aprianda Firmansyah', 'Teknik Informatika', '2021-12-12 13:29:54', '2021-12-12 13:29:54');
 /*!40000 ALTER TABLE `mahasiswas` ENABLE KEYS */;
 
 -- Dumping structure for table web_bimbingan.migrations
@@ -104,9 +117,9 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table web_bimbingan.migrations: ~9 rows (approximately)
+-- Dumping data for table web_bimbingan.migrations: ~12 rows (approximately)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(3, '2014_10_12_200000_add_two_factor_columns_to_users_table', 1),
@@ -117,8 +130,57 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(13, '2019_12_14_000001_create_personal_access_tokens_table', 2),
 	(14, '2021_12_04_185729_create_mahasiswas_table', 2),
 	(15, '2021_12_06_161927_create_dosens_table', 2),
-	(16, '2021_12_07_005313_create_guidances_table', 2);
+	(16, '2021_12_07_005313_create_guidances_table', 2),
+	(17, '2021_12_26_165432_create_notifications_table', 3),
+	(18, '2021_12_26_165444_create_seminars_table', 3),
+	(19, '2021_12_26_165458_create_detail_seminars_table', 3),
+	(20, '2021_12_26_165518_create_peserta_seminars_table', 3),
+	(21, '2021_12_26_170617_create_notification_statuses_table', 3);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+
+-- Dumping structure for table web_bimbingan.notifications
+CREATE TABLE IF NOT EXISTS `notifications` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `from` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `to` char(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `role` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table web_bimbingan.notifications: ~0 rows (approximately)
+/*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
+INSERT INTO `notifications` (`id`, `from`, `to`, `role`, `type`, `link`, `title`, `status`, `description`, `created_at`, `updated_at`) VALUES
+	(1, '214431', 'admin', 'personal', 'notification', '/admin/result?data=Cara%20membuat%20website%20dinamis&id=4', 'Pengajuan Bimbingan Mahasiswa Baru', 'action', 'Pengajuan Bimbingan Mahasiswa Baru', '2022-01-01 03:40:35', '2022-01-01 03:40:35'),
+	(3, 'admin', 'dosen', 'personal', 'notification', '/dosen/proses/bimbingan?data=Cara membuat website dinamis&id=4', 'Pengajuan Bimbingan Kepada Dosen', 'action', 'Pengajuan Bimbingan Mahasiswa Kepada Dosen', '2022-01-02 03:25:10', '2022-01-02 03:25:10'),
+	(4, 'dosen', '214431', 'personal', 'notification', '/bimbingan/hasil?data=cara ,embua&id=4', 'Selamat bimbingan berhasil di Setujui', 'action', 'selamat anda berhasil', '2022-01-02 03:36:58', '2022-01-02 03:36:58');
+/*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
+
+-- Dumping structure for table web_bimbingan.notification_statuses
+CREATE TABLE IF NOT EXISTS `notification_statuses` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `notification_id` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table web_bimbingan.notification_statuses: ~0 rows (approximately)
+/*!40000 ALTER TABLE `notification_statuses` DISABLE KEYS */;
+INSERT INTO `notification_statuses` (`id`, `notification_id`, `username`, `status`, `created_at`, `updated_at`) VALUES
+	(1, '1', 'admin', 'read', '2022-01-02 03:09:44', '2022-01-02 03:09:44'),
+	(2, '2', 'dosen', 'read', '2022-01-02 03:24:16', '2022-01-02 03:24:16'),
+	(3, '3', 'dosen', 'read', '2022-01-02 03:29:31', '2022-01-02 03:29:31'),
+	(4, '4', '214431', 'read', '2022-01-02 03:38:18', '2022-01-02 03:38:18');
+/*!40000 ALTER TABLE `notification_statuses` ENABLE KEYS */;
 
 -- Dumping structure for table web_bimbingan.password_resets
 CREATE TABLE IF NOT EXISTS `password_resets` (
@@ -151,6 +213,46 @@ CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
 -- Dumping data for table web_bimbingan.personal_access_tokens: ~0 rows (approximately)
 /*!40000 ALTER TABLE `personal_access_tokens` DISABLE KEYS */;
 /*!40000 ALTER TABLE `personal_access_tokens` ENABLE KEYS */;
+
+-- Dumping structure for table web_bimbingan.peserta_seminars
+CREATE TABLE IF NOT EXISTS `peserta_seminars` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `seminar_id` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ticket` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instansi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sosmed` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table web_bimbingan.peserta_seminars: ~0 rows (approximately)
+/*!40000 ALTER TABLE `peserta_seminars` DISABLE KEYS */;
+/*!40000 ALTER TABLE `peserta_seminars` ENABLE KEYS */;
+
+-- Dumping structure for table web_bimbingan.seminars
+CREATE TABLE IF NOT EXISTS `seminars` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `speaker` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ruangan` char(125) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `max` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` timestamp NULL DEFAULT NULL,
+  `end_date` timestamp NULL DEFAULT NULL,
+  `status` enum('0','1','2') COLLATE utf8mb4_unicode_ci DEFAULT '2',
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_by` char(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table web_bimbingan.seminars: ~0 rows (approximately)
+/*!40000 ALTER TABLE `seminars` DISABLE KEYS */;
+INSERT INTO `seminars` (`id`, `title`, `speaker`, `ruangan`, `max`, `date`, `end_date`, `status`, `description`, `created_by`, `created_at`, `updated_at`) VALUES
+	(1, 'Text tailwind webinar 2022', 'rizkan firmansyah', 'A-10', '150', NULL, NULL, '2', 'webinar tentang framework CSS', NULL, '2021-12-27 15:18:57', '2021-12-27 17:03:08');
+/*!40000 ALTER TABLE `seminars` ENABLE KEYS */;
 
 -- Dumping structure for table web_bimbingan.sessions
 CREATE TABLE IF NOT EXISTS `sessions` (
@@ -187,17 +289,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table web_bimbingan.users: ~3 rows (approximately)
+-- Dumping data for table web_bimbingan.users: ~6 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `role`, `email`, `email_verified_at`, `password`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', '1', NULL, NULL, '$2y$10$.n8gCHa6WsxG2NGMlKTI/eE70tKYYQYCISVP1nfZ8sMybNcH2gvpi', NULL, NULL, NULL, '2021-12-08 08:51:43', '2021-12-08 08:51:43'),
-	(2, '2143441', '3', NULL, NULL, '$2y$10$JjS4PpVdvp9O7R9b9.5PAe70E4aR8rhyu0sqMyRJmCgS6TJvnFELy', NULL, NULL, NULL, '2021-12-08 08:51:59', '2021-12-11 16:46:17'),
 	(3, 'dosen', '2', NULL, NULL, '$2y$10$W1kxzI63L54dcDAUJ89kfeX/.heasDbOC6mdsz0NoonpYh2zcScTe', NULL, NULL, NULL, '2021-12-08 08:52:13', '2021-12-08 08:52:13'),
 	(4, '121212', '3', NULL, NULL, '$2y$10$IqbEyqa5N4ympCW2Yfa6LujzO9R9PIC91BJUwVGfr8XmiF6ldvaea', NULL, NULL, NULL, '2021-12-11 14:20:17', '2021-12-11 14:20:17'),
 	(5, '202021', '3', NULL, NULL, '$2y$10$XE/i43fiMhL9./Jt6wj5wusgRYNttkBNPcEa.j7Rdpa/045PlZ5U.', NULL, NULL, NULL, '2021-12-11 16:14:17', '2021-12-11 16:48:26'),
-	(12, 'anne', '2', NULL, NULL, '$2y$10$3kzlcpFewIqsaD/1/4htEuZlTVno0pCzYQ96A8P6kFdjRVD.4YDae', NULL, NULL, NULL, '2021-12-11 16:25:32', '2021-12-11 16:25:32');
+	(12, 'anne', '2', NULL, NULL, '$2y$10$3kzlcpFewIqsaD/1/4htEuZlTVno0pCzYQ96A8P6kFdjRVD.4YDae', NULL, NULL, NULL, '2021-12-11 16:25:32', '2021-12-11 16:25:32'),
+	(13, '214431', '3', NULL, NULL, '$2y$10$tY6uHNDbsZlLfzRjC9JvQeevwfQG5gU.RIyjdEIXM1Ew8SlGA5UVy', NULL, NULL, NULL, '2021-12-12 13:29:54', '2021-12-12 13:29:54');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
