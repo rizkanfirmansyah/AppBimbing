@@ -100,13 +100,13 @@ function Notification($from, $to, $data)
 
 function NotifUsers()
 {
-    $data = Notification::where('to', auth()->user()->name)->get();
+    $data = Notification::where('to', auth()->user()->name)->orWhere('to', 'all')->get();
     return $data;
 }
 
 function NotifCount()
 {
-        return Notification::where('to', auth()->user()->name)->count();
+        return Notification::where('to', auth()->user()->name)->orWhere('to', 'all')->count();
 }
 
 function CheckStatusNotif($id)

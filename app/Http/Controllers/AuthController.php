@@ -27,7 +27,7 @@ class AuthController extends Controller
         Mahasiswa::create($mahasiswa);
 
         $request->session()->flash('success', 'User has been created! You can login now');
-        return redirect()->route('login-mahasiswa');
+        return redirect()->route('login');
     }
 
     public function login(Request $request)
