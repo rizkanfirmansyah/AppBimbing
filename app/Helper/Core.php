@@ -106,7 +106,9 @@ function NotifUsers()
 
 function NotifCount()
 {
-        return Notification::where('to', auth()->user()->name)->orWhere('to', 'all')->count();
+    $status = NotificationStatus::where('username', auth()->user()->name)->get()->count();
+    $notif = Notification::where('to', auth()->user()->name)->orWhere('to', 'all')->count();
+    return $notif - $status ;
 }
 
 function CheckStatusNotif($id)
