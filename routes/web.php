@@ -60,6 +60,8 @@ Route::get('/registerMahasiswa', function () {
 Route::group(['prefix' => 'mahasiswa', 'middleware' => 'auth'], function () {
     Route::get('/dashboard', [MahasiswaController::class, 'index'])->name('dashboard-mahasiswa');
     Route::get('/profile', [MahasiswaController::class, 'profile'])->name('profile-mahasiswa');
+    Route::get('/revisi', [MahasiswaController::class, 'revisi'])->name('revisi-mahasiswa');
+    Route::post('/insert/revisi', [MahasiswaController::class, 'store'])->name('insert-revisi');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
@@ -91,6 +93,8 @@ Route::group(['prefix' => 'dosen', 'middleware' => 'auth'], function () {
     Route::get('/mahasiswa/bimbingan', [DosenController::class, 'mahasiswa'])->name('mahasiswa-bimbingan');
     Route::get('/proses/bimbingan', [DosenController::class, 'proses'])->name('proses-bimbingan');
     Route::post('/approved', [DosenController::class, 'approved'])->name('approved-guidance');
+    Route::get('/list/revisi', [DosenController::class, 'list_revisi'])->name('list-revisi');
+    Route::get('/revisi', [DosenController::class, 'revisi'])->name('revisi');
 });
 
 

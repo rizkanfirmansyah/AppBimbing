@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Guidance;
 use App\Models\Mahasiswa;
+use App\Models\Revisions;
 use Illuminate\Http\Request;
 
 class GuidanceController extends Controller
@@ -25,7 +26,8 @@ class GuidanceController extends Controller
     public function result()
     {
         $bimbingan = Guidance::find($_GET['id']);
+        $revisi = Revisions::where('guidance_id',$_GET['id'])->where('user_id', '!=', auth()->user()->name)->get();
         $title = 'Detail Hasil Bimbingan';
-        return view('mahasiswa.result', compact('bimbingan', 'title'));
+        return view('mahasiswa.result', compact('bimbingan', 'title', 'revisi'));
     }
 }

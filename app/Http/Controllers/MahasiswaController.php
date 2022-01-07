@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dosen;
 use App\Models\Guidance;
 use App\Models\Mahasiswa;
+use App\Models\Revisions;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
@@ -59,7 +62,20 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'description' => 'required',
+            'formFile' => 'required',
+        ]);
+        $filename = round(microtime(true) * 1000).'-'.str_replace(' ','-',$request->file('formFile')->getClientOriginalName());
+        $request->file('formFile')->move(public_path('files'), $filename);
+        $request->request->add(['user_id' => auth()->user()->name, 'file' => $filename, 'status' => 0, 'guidance_id' => $request->id]);
+        $guidance = Guidance::find($request->id);
+        Revisions::create($request->all());
+        $dosen = Dosen::find($guidance->dosen_id);
+        $user = User::find($dosen->user_id);
+        Notification(auth()->user()->name,  $user->name, ['title' => 'Revisi Mahasiswa Bimbingan', 'description' => $request->description, 'status' => 'action', 'role' => 'personal', 'type' => 'notification', 'link' => '/dosen/list/revisi?id='. $guidance->id]);
+        $request->session()->flash('success', 'Revisi telah dibuat, tunggu hasil bimbingan!');
+        return redirect('/bimbingan/hasil?data='. $guidance->title . '&id=' . $guidance->id );
     }
 
     /**
@@ -68,9 +84,10 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function revisi()
     {
-        //
+        $title = 'revisi bimbingan mahasiswa';
+        return view('mahasiswa.revisi', compact('title'));
     }
 
     /**

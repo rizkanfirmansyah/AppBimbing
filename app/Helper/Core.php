@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\Dosen;
 use App\Models\Mahasiswa;
 use App\Models\Notification;
 use App\Models\NotificationStatus;
+use App\Models\User;
 
 function hello()
 {
@@ -108,7 +110,7 @@ function NotifCount()
 {
     $status = NotificationStatus::where('username', auth()->user()->name)->get()->count();
     $notif = Notification::where('to', auth()->user()->name)->orWhere('to', 'all')->count();
-    return $notif - $status ;
+    return $notif - $status;
 }
 
 function CheckStatusNotif($id)
@@ -136,6 +138,20 @@ function linkTo($param, $id)
     $link = Notification::find($id)->link;
     // dd($link);
     return $link;
+}
+
+function searchDosen($name)
+{
+    $user = User::where('name', $name)->get()[0];
+    $data = Dosen::where('user_id', $user['id'])->get()[0];
+    return $data;
+}
+
+function searchMahasiswa($name)
+{
+    $user = User::where('name', $name)->get()[0];
+    $data = Mahasiswa::where('user_id', $user['id'])->get()[0];
+    return $data;
 }
 
 // function status($id)

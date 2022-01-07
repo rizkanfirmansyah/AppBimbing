@@ -42,4 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function mahasiswa()
+    {
+        return $this->belongsTo(Mahasiswa::class, 'name', 'user_id');
+    }
+
+    public function dosen()
+    {
+        return $this->belongsTo(Dosen::class, 'name', 'user_id');
+    }
 }

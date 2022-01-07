@@ -72,6 +72,26 @@
                                 </div>
                                 <div class="form-row my-3">
                                     <div class="col-2">
+                                        <label for="title" class="form-label text-dark"><strong>Status
+                                            </strong></label>
+                                    </div>
+                                    <div class="col">:
+                                    </div>
+                                    <div class="col-9">
+                                        @if ($bimbingan->status == 1)
+                                            <a class="badge badge-success">Selesai</a>
+                                        @elseif ($bimbingan->status == 0)
+                                            <a class="badge badge-danger">Reject</a>
+                                        @elseif ($bimbingan->status == 4)
+                                            <a class="badge badge-warning">Revisi</a>
+                                        @else
+                                            <a class="badge badge-info">Proccess</a>
+                                        @endif
+
+                                    </div>
+                                </div>
+                                <div class="form-row my-3">
+                                    <div class="col-2">
                                         <label for="title" class="form-label text-dark"><strong>Keterangan Dosen Bimbingan
                                             </strong></label>
                                     </div>
@@ -95,6 +115,49 @@
             </div>
 
         </div>
-    </div>
-    <!-- /.container-fluid -->
-@endsection
+
+        <div class="row">
+            <div class="col-xl-12 col-lg-12">
+                <div class="card shadow mb-4">
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Tanggal</th>
+                                        <th>Dosen</th>
+                                        <th>Status</th>
+                                        <th>File</th>
+                                        <th>Keterangan</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($revisi as $item)
+                                        <tr>
+                                            <td>{{ date('d-M-Y', strtotime($item->created_at)) }}</td>
+                                            <td>{{ searchDosen($item->user->name)->nama }}</td>
+                                            <td>
+                                                @if ($item->status == 1)
+                                                    <a class="badge badge-success">Selesai</a>
+                                                @elseif ($item->status == 0)
+                                                    <a class="badge badge-warning">Revisi</a>
+                                                @endif
+                                            </td>
+                                            <td><a href="{{ route('download') }}?id={{$item->file}}" class="badge badge-primary"><i class="fas fa-download"></i>
+                                                    Download</a></td>
+                                            <td>{{ $item->description }}</td>
+                                            <td><a href="{{ route('revisi-mahasiswa') }}?id={{$_GET['id']}}" class="badge badge-secondary"><i class="fas fa-edit"></i> Revisi</a></td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+    @endsection

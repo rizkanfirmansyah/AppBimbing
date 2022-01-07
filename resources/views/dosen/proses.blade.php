@@ -6,7 +6,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">{{$title}}</h1>
+            <h1 class="h3 mb-0 text-gray-800">{{ $title }}</h1>
             <a href="{{ URL::previous() }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                     class="fas fa-sign-in-alt fa-sm text-white-50"></i> Kembali </a>
         </div>
@@ -30,7 +30,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        {{CheckMahasiswa($data->mahasiswa_id, $data) }}
+                                        {{ CheckMahasiswa($data->mahasiswa_id, $data) }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -41,7 +41,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        {{CheckMahasiswaNPM($data->mahasiswa_id, $data) }}
+                                        {{ CheckMahasiswaNPM($data->mahasiswa_id, $data) }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -52,7 +52,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        {{$data->title}}
+                                        {{ $data->title }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -63,7 +63,7 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        {{$data->description}}
+                                        {{ $data->description }}
                                     </div>
                                 </div>
                                 <div class="form-row my-3">
@@ -74,39 +74,13 @@
                                     <div class="col">:
                                     </div>
                                     <div class="col-10">
-                                        <a href="{{ route('download') }}?q=files&id={{ $data->file }}" class="badge badge-primary p-2"><i class="fas fa-download"></i> Download</a>
-                                    </div>
-                                </div>
-                                <div class="form-row my-3">
-                                    <div class="col-1">
-                                        <label for="title" class="form-label text-dark"><strong>Status
-                                            </strong></label>
-                                    </div>
-                                    <div class="col-1">:
-                                    </div>
-                                    <div class="col-10">
-                                        <select name="status" id="status" class="form-control">
-                                            <option value disabled selected>==Pilih Status==</option>
-                                            <option value="1">Approve</option>
-                                            <option value="2">Reject</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-row my-3">
-                                    <div class="col-1">
-                                        <label for="title" class="form-label text-dark"><strong>Keterangan
-                                            </strong></label>
-                                    </div>
-                                    <div class="col-2">:
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea name="keterangan" id="keterangan" cols="30" rows="5" class="form-control"></textarea>
-                                        <input type="hidden" name="id" value="{{$data->id}}">
+                                        <a href="{{ route('download') }}?q=files&id={{ $data->file }}"
+                                            class="badge badge-primary p-2"><i class="fas fa-download"></i> Download</a>
                                     </div>
                                 </div>
                             </div>
-                            <button type="reset" class=" mx-2 btn btn-secondary float-left">Reset</button>
-                            <button type="submit" class=" mx-2 btn btn-primary float-left">Submit</button>
+                            <a href="{{ route('list-revisi')  }}?id=<?= $_GET['id'] ?>" class=" mr-2 btn btn-secondary float-left">Daftar Revisi</a>
+                            <a href="{{ route('revisi')  }}?id=<?= $_GET['id'] ?>&type=guidance" class=" mr-2 btn btn-primary float-left">Revisi</a>
                         </form>
 
                     </div>
@@ -114,6 +88,9 @@
             </div>
 
         </div>
+
+
+
     </div>
     <!-- /.container-fluid -->
 @endsection
