@@ -14,7 +14,9 @@
                 aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">{{NotifCount()}}+</span>
+                @if (NotifCount() > 0)
+                    <span class="badge badge-danger badge-counter">{{ NotifCount() }}+</span>
+                @endif
             </a>
             <!-- Dropdown - Alerts -->
             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -30,8 +32,9 @@
                             </div>
                         </div>
                         <div>
-                            <div class="small text-gray-500">{{date('d-M-Y', strtotime($item->created_at))}}</div>
-                            <span class="{{ CheckStatusNotif($item->id) }}">{{$item->title}} <small>- {{ $item->from }}</small> </span>
+                            <div class="small text-gray-500">{{ date('d-M-Y', strtotime($item->created_at)) }}</div>
+                            <span class="{{ CheckStatusNotif($item->id) }}">{{ $item->title }} <small>-
+                                    {{ $item->from }}</small> </span>
                         </div>
                     </a>
                 @endforeach

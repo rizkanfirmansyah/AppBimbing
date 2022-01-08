@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\Dosen;
 use App\Models\Mahasiswa;
 use App\Models\Notification;
 use App\Models\NotificationStatus;
+use App\Models\User;
 
 function hello()
 {
@@ -92,7 +94,7 @@ function Notification($from, $to, $data)
         'status' => $data['status'] ? $data['status'] : 'acceptable',
         'link' => $data['link'] ? $data['link'] : null,
     ];
-    $notif = Notification::where('from', $data['from'])->where('to', $data['to'])->where('link', $data['link'])->get();
+    $notif = Notification::where('from', $data['from'])->where('to', $data['to'])->where('link', $data['link'])->where('description', $data['description'])->get();
     if ($notif->count() < 1) {
         Notification::create($data);
     }
@@ -106,7 +108,9 @@ function NotifUsers()
 
 function NotifCount()
 {
-        return Notification::where('to', auth()->user()->name)->orWhere('to', 'all')->count();
+    $status = NotificationStatus::where('username', auth()->user()->name)->get()->count();
+    $notif = Notification::where('to', auth()->user()->name)->orWhere('to', 'all')->count();
+    return $notif - $status;
 }
 
 function CheckStatusNotif($id)
@@ -134,6 +138,20 @@ function linkTo($param, $id)
     $link = Notification::find($id)->link;
     // dd($link);
     return $link;
+}
+
+function searchDosen($name)
+{
+    $user = User::where('name', $name)->get()[0];
+    $data = Dosen::where('user_id', $user['id'])->get()[0];
+    return $data;
+}
+
+function searchMahasiswa($name)
+{
+    $user = User::where('name', $name)->get()[0];
+    $data = Mahasiswa::where('user_id', $user['id'])->get()[0];
+    return $data;
 }
 
 // function status($id)

@@ -1,0 +1,26 @@
+APP BMBINGAN
+-Baground Web Kampus Amik
+#-Tambah Jurusan
+#-Setelah notif dibuka--->belum hilang
+
+
+
+Mahasiswa
+#-Penambahan halaman yang terhubung denga dosen pebimbing untuk upload ulang laporan hasil revisi dari dosbing
+#-di profil belum sesuai dengan NPM yang di registrasi
+#-di profil tambah alamat, tempat tanggal lahir mahasiswa
+
+
+
+Admin
+-admin di ganti menjadi kaprodi
+-
+
+
+
+Dosen
+#-Penambahan halaman yang terhubung dengan mahasiswa bimbingan untuk upload laporan revisian
+-Tambah data dosen pebimbing : 	-nama
+			-NID
+			-Alamat
+			-Tgl.Lhr

@@ -103,6 +103,7 @@
                                                 <option selected disabled>Pilih Jurusan Anda</option>
                                                 <option value="Teknik Informatika">IF</option>
                                                 <option value="Sistem Informasi">SI</option>
+                                                <option value="Desain Komunikasi Visual">DKV</option>
                                             </select>
                                         </div>
 

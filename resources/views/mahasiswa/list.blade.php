@@ -45,6 +45,8 @@
                                                 echo '<a class="badge badge-warning"><i class="fas fa-clock"></i> process</a>';
                                             } elseif ($item->status == 1) {
                                                 echo '<a class="badge badge-success"><i class="fas fa-check"></i> Approved</a>';
+                                            } elseif ($item->status == 4) {
+                                                echo '<a class="badge badge-warning"><i class="fas fa-check"></i> Revisi</a>';
                                             } else {
                                                 echo '<a class="badge badge-danger"><i class="fas fa-times"></i> Reject</a>';
                                             } ?>
