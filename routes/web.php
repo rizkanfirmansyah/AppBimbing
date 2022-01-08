@@ -122,6 +122,7 @@ Route::group(['prefix' => 'kumpulan-seminar', 'middleware' => 'auth'], function 
 
 
 Route::get('/redirects',  [HomeController::class, "index"]);
+Route::post('/change/profile',  [HomeController::class, "changeprofile"])->name('changeprofile');
 Route::get('/download/file',  function () {
     $file =$_GET['id'];
     return response()->download(public_path("files/{$file}"));
