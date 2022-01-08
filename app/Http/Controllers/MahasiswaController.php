@@ -27,8 +27,12 @@ class MahasiswaController extends Controller
 
     public function profile()
     {
-        $mahasiswa = Mahasiswa::where('user_id', auth()->user()->id)->get();
-        return view('mahasiswa.profile', ['title' => 'Profile Mahasiswa', 'data' => $mahasiswa]);
+        if (auth()->user()->role == 3) {
+            $data = Mahasiswa::where('user_id', auth()->user()->id)->get();
+        }else{
+            $data = Dosen::where('user_id', auth()->user()->id)->get();
+        }
+        return view('mahasiswa.profile', ['title' => 'Profile', 'data' => $data]);
     }
 
     /**

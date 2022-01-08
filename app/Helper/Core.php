@@ -94,7 +94,7 @@ function Notification($from, $to, $data)
         'status' => $data['status'] ? $data['status'] : 'acceptable',
         'link' => $data['link'] ? $data['link'] : null,
     ];
-    $notif = Notification::where('from', $data['from'])->where('to', $data['to'])->where('link', $data['link'])->get();
+    $notif = Notification::where('from', $data['from'])->where('to', $data['to'])->where('link', $data['link'])->where('description', $data['description'])->get();
     if ($notif->count() < 1) {
         Notification::create($data);
     }
