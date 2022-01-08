@@ -6,9 +6,9 @@ APP BMBINGAN
 
 
 Mahasiswa
--Penambahan halaman yang terhubung denga dosen pebimbing untuk upload ulang laporan hasil revisi dari dosbing
--di profil belum sesuai dengan NPM yang di registrasi
--di profil tambah alamat, tempat tanggal lahir mahasiswa
+#-Penambahan halaman yang terhubung denga dosen pebimbing untuk upload ulang laporan hasil revisi dari dosbing
+#-di profil belum sesuai dengan NPM yang di registrasi
+#-di profil tambah alamat, tempat tanggal lahir mahasiswa
 
 
 
@@ -19,7 +19,7 @@ Admin
 
 
 Dosen
--Penambahan halaman yang terhubung dengan mahasiswa bimbingan untuk upload laporan revisian
+#-Penambahan halaman yang terhubung dengan mahasiswa bimbingan untuk upload laporan revisian
 -Tambah data dosen pebimbing : 	-nama
 			-NID
 			-Alamat
