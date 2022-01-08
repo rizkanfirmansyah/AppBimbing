@@ -6,6 +6,7 @@ use App\Models\Dosen;
 use App\Models\Guidance;
 use App\Models\Mahasiswa;
 use App\Models\Seminar;
+use App\Models\PesertaSeminar;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -144,6 +145,13 @@ class AdminController extends Controller
         $title = 'Data Seminar';
         $seminar = Seminar::all();
         return view('admin.seminar', compact('title', 'seminar'));
+    }
+
+    public function detailPeserta($id)
+    {
+        $seminar = PesertaSeminar::where('seminar_id', $id)->get();
+        $title = "Detail Peserta";
+        return view('admin.detailPeserta', compact('title', 'seminar'));
     }
 
     public function result()

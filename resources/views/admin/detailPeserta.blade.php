@@ -36,28 +36,19 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Tanggal</th>
-                                        <th>Pembicara</th>
-                                        <th>Judul</th>
-                                        <th>Ruangan</th>
-                                        <th>Peserta</th>
-                                        <th>Max</th>
-                                        <th>Action</th>
+                                        <th>Nama</th>
+                                        <th>Tiket</th>
+                                        <th>Instansi</th>
+                                        <th>Sosial Media</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($seminar as $key => $item)
+                                    @foreach ($seminar as $item)
                                         <tr>
-                                            <td>{{date('d-M-Y', strtotime($item->date))}}</td>
-                                            <td class="text-capitalize">{{ SpeakerSeminar($item->speaker) }} </td>
-                                            <td>{{ $item->title }}</td>
-                                            <td>{{ $item->ruangan }}</td>
-                                            <td><a href="{{ route('detail-peserta', $item->id) }}">{{ $item->participants->count() }} Peserta</a></td>
-                                            <td>{{ $item->max }}</td>
-                                            <td>
-                                                <a href="{{ route('edit-seminar', $item->id)}}" class="badge badge-warning"><i class="fas fa-edit"></i> Edit</a>
-                                                <a href="{{route('destroy-seminar', $item->id)}}" class="badge badge-danger"><i class="fas fa-trash"></i> Hapus</a>
-                                            </td>
+                                            <td>{{ $item->nama }}</td>
+                                            <td>{{ $item->ticket }} </td>
+                                            <td>{{ $item->instansi }}</td>
+                                            <td>{{ $item->sosmed }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

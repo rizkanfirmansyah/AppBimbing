@@ -10,7 +10,7 @@
             <div class="navbar-nav">
                 <a class="nav-link mx-3 active" id="{{ request()->routeIs('/') ? 'active' : ' ' }}" aria-current="page" href="{{route('/')}}">Home</a>
                 <a class="nav-link mx-3" href="{{route('information')}}" id="{{ request()->routeIs('information') ? 'active' : ' ' }}" >Information</a>
-                <a class="nav-link mx-3" href="#">Services</a>
+                <a class="nav-link mx-3" href="{{route('seminar')}}" id="{{ request()->routeIs('seminar') ? 'active' : ' ' }}">Seminar</a>
                 <a class="nav-link mx-3" href="{{ route('about') }}" id="{{ request()->routeIs('about') ? 'active' : ' ' }}">About Us</a>
                 <a href="{{ route('login') }}" class="nav-link mx-3 active" id="active">Login <img
                         class="img-fluid img-nav" src="/assets/img/login-svgrepo-com 1.png" alt=""></a>
