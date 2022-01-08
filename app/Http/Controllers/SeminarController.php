@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Seminar;
+use App\Models\PesertaSeminar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class SeminarController extends Controller
 {
@@ -14,7 +16,9 @@ class SeminarController extends Controller
      */
     public function index()
     {
-        //
+        $seminar = Seminar::all();
+        $title = "Kumpulan Seminar yang sedang Berlangsung";
+        return view('home/seminar', compact('title', 'seminar'));
     }
 
     /**
@@ -57,7 +61,22 @@ class SeminarController extends Controller
      */
     public function show($id)
     {
-        //
+        $seminar = Seminar::find($id);
+        $title = "Gabung Seminar";
+        return view('home.seminar-detail', compact('title', 'seminar'));
+    }
+
+    public function join(Request $request)
+    {
+        $request->validate([
+            'seminar_id' => 'required',
+            'nama' => 'required',
+            'instansi' => 'required',
+            'ticket' => 'required'
+        ]);
+        
+        PesertaSeminar::create($request->all());
+        return redirect()->route('seminar');
     }
 
     /**

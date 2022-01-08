@@ -13,4 +13,9 @@ class Seminar extends Model
 
     protected $table = 'seminars';
     protected $guarded = ['id'];
+
+    public function participants()
+    {
+        return $this->hasMany(PesertaSeminar::class);
+    }
 }
