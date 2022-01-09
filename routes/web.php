@@ -113,8 +113,8 @@ Route::group(['prefix' => 'seminar', 'middleware' => 'auth'], function () {
     Route::get('/destroy/{id}', [SeminarController::class, 'destroy'])->name('destroy-seminar');
 });
 
+Route::get('/kumpulan-seminar', [SeminarController::class, 'index'])->name('seminar');
 Route::group(['prefix' => 'kumpulan-seminar', 'middleware' => 'auth'], function () {
-    Route::get('/', [SeminarController::class, 'index'])->name('seminar');
     Route::get('/join/{id}', [SeminarController::class, 'show'])->name('join-seminar');
     Route::post('/store', [SeminarController::class, 'join'])->name('create-peserta');
     Route::get('/participants{id}', [AdminController::class, 'detailPeserta'])->name('detail-peserta');

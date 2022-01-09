@@ -19,12 +19,12 @@
 
 <body>
 
-    <div class="main">
+    <div class="main m-5 pb-5">
 
         @include('home.navbar')
 
 
-        <div class="section">
+        <div class="section mb-5">
 
             <div class="jumbotron">
                 <div class="container">
@@ -48,12 +48,12 @@
                 </div>
             </div>
 
-            <div class="container">
-                <div class="row text-center text-white m-5 p-5">
+            <div class="container mb-5">
+                <div class="row text-center text-white mb-5">
                     <h1>Kumpulan Seminar yang Berlangsung</h1>
                 </div>
-                <div class="row m-5">
-                    @foreach ($seminar as $item)            
+                <div class="row mb-5">
+                    @foreach ($seminar as $item)
                     <div class="col-sm-4">
                         <div class="card bg-transparent text-white border-white border">
                             <div class="card-header bg-primary">

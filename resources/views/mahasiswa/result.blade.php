@@ -145,10 +145,17 @@
                                                     <a class="badge badge-warning">Revisi</a>
                                                 @endif
                                             </td>
-                                            <td><a href="{{ route('download') }}?id={{$item->file}}" class="badge badge-primary"><i class="fas fa-download"></i>
+                                            <td><a href="{{ route('download') }}?id={{ $item->file }}"
+                                                    class="badge badge-primary"><i class="fas fa-download"></i>
                                                     Download</a></td>
                                             <td>{{ $item->description }}</td>
-                                            <td><a href="{{ route('revisi-mahasiswa') }}?id={{$_GET['id']}}" class="badge badge-secondary"><i class="fas fa-edit"></i> Revisi</a></td>
+                                            <td>
+                                                @if ($bimbingan->status == 4)
+                                                    <a href="{{ route('revisi-mahasiswa') }}?id={{ $_GET['id'] }}"
+                                                        class="badge badge-secondary"><i class="fas fa-edit"></i>
+                                                        Revisi</a>
+                                                @endif
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

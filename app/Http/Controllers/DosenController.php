@@ -116,12 +116,13 @@ class DosenController extends Controller
             }
             Notification(auth()->user()->name, $user->name, ['title' => $title, 'description' => $request->keterangan ? $request->keterangan : 'tidak ada keterangan', 'status' => 'action', 'role' => 'personal', 'type' => 'notification', 'link' => '/bimbingan/hasil?data=' . $guidance->title . '&id=' . $guidance->id]);
         } else {
+            $filename = null;
             if ($request->file_upload) {
                 $filename = round(microtime(true) * 1000) . '-' . str_replace(' ', '-', $request->file('file_upload')->getClientOriginalName());
                 $request->file('file_upload')->move(public_path('files'), $filename);
             }
             $data = [
-                'status' => '0',
+                'status' => $request->status,
                 'user_id' => auth()->user()->name,
                 'guidance_id' => $request->id,
                 'description' => $request->keterangan,
