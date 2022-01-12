@@ -33,7 +33,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="dataTableCustom" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>Tanggal</th>
@@ -58,6 +58,8 @@
                                                 echo '<a class="badge badge-warning"><i class="fas fa-clock"></i> process</a>';
                                             } elseif ($item->status == 1) {
                                                 echo '<a class="badge badge-success"><i class="fas fa-check"></i> Approved</a>';
+                                            } elseif ($item->status == 4) {
+                                                echo '<a class="badge badge-warning"><i class="fas fa-check"></i> Revisi</a>';
                                             } else {
                                                 echo '<a class="badge badge-danger"><i class="fas fa-times"></i> Reject</a>';
                                             } ?>

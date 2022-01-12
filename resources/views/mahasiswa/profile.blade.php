@@ -16,7 +16,7 @@
                 <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="https://placeimg.com/640/480/tech" class="img-fluid rounded-start" alt="...">
+                            <img src="{{ $data[0]->photo == null ? '/assets/img/undraw_profile.svg' : '/files/' . $data[0]->photo }}" class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -41,7 +41,7 @@
                 <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="https://placeimg.com/640/480/tech" class="img-fluid rounded-start" alt="...">
+                            <img src="/assets/img/undraw_profile.svg" class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -55,6 +55,23 @@
                                         href="?type=edit&id={{ $data[0]->id }}&role=dosen"
                                         class="float-right badge badge-warning"> <i>
                                             <i class="fas fa-edit"></i> Edit</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @elseif (auth()->user()->role == 1 && empty($_GET['type']))
+
+            <div class="col-12 col-md-8 col-lg-8">
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/assets/img/undraw_profile.svg" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h6 class="card-title text-bold">Username : {{ auth()->user()->name }}</h6>
                             </div>
                         </div>
                     </div>
@@ -85,8 +102,18 @@
                                 </div>
                             @endif
 
-                            <form method="post" action="{{ route('changeprofile') }}">
+                            <form method="post" action="{{ route('changeprofile') }}" enctype="multipart/form-data">
                                 @csrf
+                                <div class="mb-3">
+                                    <label for="title" class="form-label">Foto</label>
+                                    <input type="file" class="form-control @error('files') is-invalid @enderror"
+                                        id="files" name="files">
+                                    @error('files')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
                                 <div class="mb-3">
                                     <label for="title" class="form-label">Tanggal Lahir</label>
                                     <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror"
@@ -108,8 +135,8 @@
                                     @enderror
                                 </div>
 
-                                <input type="hidden" name="type" value="{{$_GET['role']}}">
-                                <input type="hidden" name="id" value="{{$_GET['id']}}">
+                                <input type="hidden" name="type" value="{{ $_GET['role'] }}">
+                                <input type="hidden" name="id" value="{{ $_GET['id'] }}">
                                 <button type="reset" class=" mx-2 btn btn-secondary float-right">Reset</button>
                                 <button type="submit" class=" mx-2 btn btn-primary float-right">Submit</button>
                             </form>

@@ -30,9 +30,17 @@ class HomeController extends Controller
 
     public function changeprofile(Request $request)
     {
+        $request->validate([
+            'files' => 'mimes:jpg,bmp,png'
+        ]);
+        if ($request->file('files') !== null) {
+            $filename = round(microtime(true) * 1000) . '-' . str_replace(' ', '-', $request->file('files')->getClientOriginalName());
+            $request->file('files')->move(public_path('files'), $filename);
+            $request->request->add(['photo' => $filename]);
+        }
         if ($request->type == 'mahasiswa') {
             Mahasiswa::find($request->id)->update($request->all());
-        }else{
+        } else {
             Dosen::find($request->id)->update($request->all());
         }
 

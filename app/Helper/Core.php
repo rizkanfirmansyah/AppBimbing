@@ -37,12 +37,16 @@ function CheckRole($id)
     else if ($id == 3) return 'Mahasiswa';
 }
 
-function CheckMahasiswa($id, $array)
+function CheckMahasiswa($id, $array, $param = 'nama')
 {
     $mahasiswa = Mahasiswa::find($id);
 
     if ($mahasiswa) {
-        return $array->mahasiswa->nama;
+        if ($param == 'nama') {
+            return $array->mahasiswa->nama;
+        }else if($param == 'alamat'){
+            return $array->mahasiswa->alamat;
+        }
     } else {
         return 'Mahasiswa tidak terdaftar';
     }

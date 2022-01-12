@@ -22,13 +22,14 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="dataTableCustom" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Username</th>
                                         <th>Nama</th>
                                         <th>Jurusan</th>
+                                        <th>Alamat</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -39,6 +40,7 @@
                                             <td>{{$item->user->name}}</td>
                                             <td>{{$item->nama}}</td>
                                             <td>{{$item->jurusan}}</td>
+                                            <td>{{$item->alamat}}</td>
                                             {{-- <td>
                                                 <a href="{{ route('admin-dosen-edit') }}?id={{$item->id}}" class="badge badge-warning">Edit</a>
                                                 <a href="{{ route('admin-dosen-hapus') }}?id={{$item->id}}" class="badge badge-danger">Hapus</a>

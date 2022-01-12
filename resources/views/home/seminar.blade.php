@@ -19,34 +19,13 @@
 
 <body>
 
-    <div class="main m-5 pb-5">
+    <div class="main ">
 
         @include('home.navbar')
 
 
-        <div class="section mb-5">
+        <div class="section" style="margin-top: 50px;">
 
-            <div class="jumbotron">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-md-6">
-
-                            <h2 class="subtitle-jumbotron mb-3">App Bimbing</h2>
-                            <h1 class="title-jumbotron mb-3">SEMINAR PAGE</h1>
-                            <p class="paragraph-jumbotron mb-4" style="text-align: justify">Beberapa seminar yang sedang berlangsung di kampus STMIK AMIK Bandung</p>
-
-                        </div>
-                        <div class="col-md-6">
-
-                            <img src="/images/logo.png" alt="images" class="img-fluid ms-5">
-                            {{-- <i class="fa fa-school img-fluid ms-1 md-ms-5 lg-ms-5 text-white"></i> --}}
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
 
             <div class="container mb-5">
                 <div class="row text-center text-white mb-5">

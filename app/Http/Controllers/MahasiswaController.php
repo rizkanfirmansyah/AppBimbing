@@ -29,8 +29,10 @@ class MahasiswaController extends Controller
     {
         if (auth()->user()->role == 3) {
             $data = Mahasiswa::where('user_id', auth()->user()->id)->get();
-        }else{
+        }else if(auth()->user()->role == 2){
             $data = Dosen::where('user_id', auth()->user()->id)->get();
+        }else {
+            $data = null;
         }
         return view('mahasiswa.profile', ['title' => 'Profile', 'data' => $data]);
     }
