@@ -88,7 +88,7 @@
                                     <div class="col-1">:
                                     </div>
                                     <div class="col-8">
-                                        <select name="dosen" id="dosen" class="form-control">
+                                        <select name="dosen" id="dosen" class="form-control" {{ $data->dosen_id ? 'disabled' : ' ' }}>
                                             <option value disabled selected>Pilih Dosen Pembimbing</option>
                                             @foreach ($dosen as $item)
                                                 <option {{ $data->dosen_id == $item->id ? 'selected' : ' ' }}

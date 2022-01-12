@@ -29,6 +29,7 @@
                                         <th>Nama</th>
                                         <th>NPM</th>
                                         <th>Jurusan</th>
+                                        <th>Alamat</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -39,6 +40,7 @@
                                             <td>{{ CheckMahasiswa($item->mahasiswa_id, $item) }}</td>
                                             <td>{{ CheckMahasiswaNPM($item->mahasiswa_id, $item) }}</td>
                                             <td>{{ CheckMahasiswaJurusan($item->mahasiswa_id, $item) }}</td>
+                                            <td>{{ CheckMahasiswa($item->mahasiswa_id, $item, 'alamat') }}</td>
                                         </tr>
                                         <?php $i++; ?>
                                     @endforeach
