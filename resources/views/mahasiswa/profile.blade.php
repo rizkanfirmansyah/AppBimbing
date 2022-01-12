@@ -41,7 +41,7 @@
                 <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="/assets/img/undraw_profile.svg" class="img-fluid rounded-start" alt="...">
+                            <img src="{{ $data[0]->photo == null ? '/assets/img/undraw_profile.svg' : '/files/' . $data[0]->photo }}" class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">

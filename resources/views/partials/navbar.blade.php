@@ -49,7 +49,16 @@
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }}</span>
-                <img class="img-profile rounded-circle" src="/assets/img/undraw_profile.svg">
+                @if (auth()->user()->role == 1)
+                    <img class="img-profile rounded-circle" src="/assets/img/undraw_profile.svg">
+                @else
+                    @if (auth()->user()->role == 2)
+                        <img class="img-profile rounded-circle" src="{{ SearchDosen(auth()->user()->name)->photo != null ? '/files/' . SearchDosen(auth()->user()->name)->photo : '/assets/img/undraw_profile.svg' }}">
+                    @else
+                        <img class="img-profile rounded-circle"
+                            src="{{ SearchMahasiswa(auth()->user()->name)->photo != null ? '/files/' . SearchMahasiswa(auth()->user()->name)->photo : '/assets/img/undraw_profile.svg' }}">
+                    @endif
+                @endif
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -61,7 +70,7 @@
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     Settings
                 </a>
-                <a class="dropdown-item" href="{{route('/')}}">
+                <a class="dropdown-item" href="{{ route('/') }}">
                     <i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>
                     Home
                 </a>
