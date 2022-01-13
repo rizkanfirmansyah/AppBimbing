@@ -36,7 +36,7 @@
                     <div class="col-sm-4">
                         <div class="card bg-transparent text-white border-white border">
                             <div class="card-header bg-primary">
-                              Featured
+                              Tanggal {{ date('d-M-Y', strtotime($item->date)) }}
                             </div>
                             <div class="card-body">
                               <h5 class="card-title">{{$item->title}}</h5>

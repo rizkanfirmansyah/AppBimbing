@@ -30,16 +30,37 @@
                 <div class="container">
                     <div class="row">
 
+
+                        <div class="col-md-6">
+
+                            <div class="card mt-3 bg-transparent text-white">
+                                <div class="card-header">
+                                    {{ $seminar->title }}
+                                </div>
+                                <div class="card-body">
+                                    <p>{{ $seminar->description }}</p>
+                                    <span>Tanggal : {{ date('d-M-Y', strtotime($seminar->date)) }}</span><br>
+                                    <span>Peserta : {{ checkPeserta($seminar->id) }}</span><br>
+                                    <span>Max Peserta : {{ $seminar->max }}</span>
+                                    <footer class="blockquote-footer text-white text-small text-end">
+                                        {{ $seminar->speaker }}
+                                    </footer>
+                                </div>
+                            </div>
+
+                        </div>
+
                         <div class="col-md-6">
                             <div class="card-body text-white">
                                 <form action="{{ route('create-peserta') }}" method="POST">
                                     @csrf
                                     <div class="mb-3">
                                         <input type="hidden" value="{{ $seminar->id }}" name="seminar_id">
-                                        <input type="hidden" value="{{ strtoupper(substr($seminar->title,0, 1)).'-'.$seminar->id.Auth::user()->id }}" name="ticket">
+                                        <input type="hidden"
+                                            value="{{ strtoupper(substr($seminar->title, 0, 1)) . '-' . $seminar->id . Auth::user()->id }}"
+                                            name="ticket">
                                         <label for="nama" class="form-label">Nama :</label>
-                                        <input type="text"
-                                            class="form-control @error('nama') is-invalid @enderror"
+                                        <input type="text" class="form-control @error('nama') is-invalid text-white @enderror"
                                             id="nama" placeholder="Input Nama" name="nama">
                                         @error('nama')
                                             <div class="invalid-feedback">
@@ -49,8 +70,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="instansi" class="form-label">Instansi :</label>
-                                        <input type="text"
-                                            class="form-control  @error('instansi') is-invalid @enderror"
+                                        <input type="text" class="form-control  @error('instansi') is-invalid text-white @enderror"
                                             id="instansi" placeholder="Enter Instansi" name="instansi">
                                         @error('instansi')
                                             <div class="invalid-feedback">
@@ -60,8 +80,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="sosmed" class="form-label">Sosial Media :</label>
-                                        <input type="text"
-                                            class="form-control  @error('sosmed') is-invalid @enderror"
+                                        <input type="text" class="form-control  @error('sosmed') is-invalid text-white @enderror"
                                             id="sosmed" placeholder="Enter Sosial Media" name="sosmed">
                                         @error('sosmed')
                                             <div class="invalid-feedback">
@@ -69,26 +88,13 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    {{-- <a class="btn btn-primary" href="/dashboardMahasiswa" role="button">Login</a> --}}
-                                    <button type="submit" class="btn btn-primary">Join</button>
-
-                                    {{-- <a href="/registerMahasiswa" class="btn btn-link">Belum Punya Akun?</a> --}}
+                                    @if (checkPeserta($seminar->id) > $seminar->max)
+                                        <a class="btn btn-secondary text-white">Kuota Seminar Penuh</a>
+                                    @else
+                                        <button type="submit" class="btn btn-primary">Join</button>
+                                    @endif
                                 </form>
                             </div>
-                            {{-- <form action="">
-                                <input type="hidden" class="form-control" name="seminar_id" value="{{ $seminar->id }}">
-                                <input class="form-control" type="text" name="nama" placeholder="Nama" aria-label="default input example">
-                                <input class="form-control" type="text" name="ticket" placeholder="ticket">
-                                <input class="form-control" type="text" name="instansi" placeholder="Instansi">
-                                <input class="form-control" type="text" name="sosmed" placeholder="Sosial Media">
-                                <button class="btn-primary"><input type="submit" name="submit"></button>
-                            </form> --}}
-                        </div>
-                        <div class="col-md-6">
-
-                            <img src="/images/logo.png" alt="images" class="img-fluid ms-5">
-                            {{-- <i class="fa fa-school img-fluid ms-1 md-ms-5 lg-ms-5 text-white"></i> --}}
-
                         </div>
 
                     </div>

@@ -4,6 +4,7 @@ use App\Models\Dosen;
 use App\Models\Mahasiswa;
 use App\Models\Notification;
 use App\Models\NotificationStatus;
+use App\Models\PesertaSeminar;
 use App\Models\User;
 
 function hello()
@@ -166,6 +167,12 @@ function namaUser()
     else $data = searchMahasiswa($name);
 
     return $data;
+}
+
+function checkPeserta($id)
+{
+    $peserta = PesertaSeminar::where('seminar_id', $id)->count();
+    return $peserta;
 }
 
 // function status($id)

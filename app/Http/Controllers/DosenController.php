@@ -111,6 +111,8 @@ class DosenController extends Controller
             $user = User::find($mahasiswa->user_id);
             if ($request->status == 1) {
                 $title = 'Selamat bimbingan berhasil di Setujui';
+            } else if($request->status == 4) {
+                $title = 'Maaf, bimbingan direvisi. Coba lagi!';
             } else {
                 $title = 'Maaf, bimbingan ditolak. Coba lagi!';
             }

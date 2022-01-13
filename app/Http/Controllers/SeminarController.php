@@ -47,8 +47,8 @@ class SeminarController extends Controller
             'max' => 'required',
         ]);
 
-        Seminar::create($request->all());
-        Notification(auth()->user()->name, 'all', ['title' => 'Seminar Baru "'. $request->title .'"', 'description' => $request->title, 'status' => 'action', 'role' => 'broadcast', 'type' => 'notification', 'link' => '#']);
+        $seminar = Seminar::create($request->all());
+        Notification(auth()->user()->name, 'all', ['title' => 'Seminar Baru "'. $request->title .'"', 'description' => $request->title, 'status' => 'action', 'role' => 'broadcast', 'type' => 'notification', 'link' => route('join-seminar', $seminar->id)]);
         $request->session()->flash('success', 'Seminar berhasil dibuat! ');
         return redirect()->route('admin-seminar');
     }
@@ -74,7 +74,7 @@ class SeminarController extends Controller
             'instansi' => 'required',
             'ticket' => 'required'
         ]);
-        
+
         PesertaSeminar::create($request->all());
         return redirect()->route('seminar');
     }
