@@ -44,7 +44,7 @@
 
                                 <a href="{{ route('login') }}" class="py-2 px-4 btn btn-primary me-3">Daftar
                                     Sekarang</a>
-                                <a href="{{route('information')}}}" class="py-2 px-4 btn btn-outline-primary text-white">Informasi lanjut</a>
+                                {{-- <a href="{{route('information')}}}" class="py-2 px-4 btn btn-outline-primary text-white">Informasi lanjut</a> --}}
                             </form>
 
                         </div>

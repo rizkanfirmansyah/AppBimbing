@@ -80,7 +80,7 @@
                                 </div>
                             </div>
                             <a href="{{ route('list-revisi')  }}?id=<?= $_GET['id'] ?>" class=" mr-2 btn btn-secondary float-left">Daftar Revisi</a>
-                            <a href="{{ route('revisi')  }}?id=<?= $_GET['id'] ?>&type=guidance" class=" mr-2 btn btn-primary float-left">Revisi</a>
+                            <a href="{{ route('revisi')  }}?id=<?= $_GET['id'] ?>&type=guidance" class=" mr-2 btn btn-primary float-left">Approval</a>
                         </form>
 
                     </div>
