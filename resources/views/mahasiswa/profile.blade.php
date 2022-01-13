@@ -16,7 +16,8 @@
                 <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="{{ $data[0]->photo == null ? '/assets/img/undraw_profile.svg' : '/files/' . $data[0]->photo }}" class="img-fluid rounded-start" alt="...">
+                            <img src="{{ $data[0]->photo == null ? '/assets/img/undraw_profile.svg' : '/files/' . $data[0]->photo }}"
+                                class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -41,7 +42,8 @@
                 <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="{{ $data[0]->photo == null ? '/assets/img/undraw_profile.svg' : '/files/' . $data[0]->photo }}" class="img-fluid rounded-start" alt="...">
+                            <img src="{{ $data[0]->photo == null ? '/assets/img/undraw_profile.svg' : '/files/' . $data[0]->photo }}"
+                                class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -106,14 +108,26 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label for="title" class="form-label">Foto</label>
-                                    <input type="file" class="form-control @error('files') is-invalid @enderror"
-                                        id="files" name="files">
+                                    <input type="file" class="form-control @error('files') is-invalid @enderror" id="files"
+                                        name="files">
                                     @error('files')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
+                                @if (auth()->user()->role == 2)
+                                    <div class="mb-3">
+                                        <label for="title" class="form-label">NID Dosen</label>
+                                        <input type="text" class="form-control @error('nid') is-invalid @enderror" id="nid"
+                                            name="nid">
+                                        @error('nid')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                @endif
                                 <div class="mb-3">
                                     <label for="title" class="form-label">Tanggal Lahir</label>
                                     <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror"

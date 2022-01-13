@@ -16,7 +16,7 @@
                 <a class="nav-link mx-3" href="{{ route('about') }}"
                     id="{{ request()->routeIs('about') ? 'active' : ' ' }}">About Us</a>
                 @if (auth()->user())
-                    <a href="{{ route('profile-mahasiswa') }}" class="nav-link mx-3 active" id="active"> {{auth()->user()->name}} <i class="fas fa-user"></i></a>
+                    <a href="{{ route('profile-mahasiswa') }}" class="nav-link mx-3 active" id="active"> {{ auth()->user()->role == 1 ? auth()->user()->name : namaUser()->nama }} <i class="fas fa-user"></i></a>
                 @else
                     <a href="{{ route('login') }}" class="nav-link mx-3 active" id="active">Login <img
                             class="img-fluid img-nav" src="/assets/img/login-svgrepo-com 1.png" alt=""></a>

@@ -44,7 +44,7 @@ function CheckMahasiswa($id, $array, $param = 'nama')
     if ($mahasiswa) {
         if ($param == 'nama') {
             return $array->mahasiswa->nama;
-        }else if($param == 'alamat'){
+        } else if ($param == 'alamat') {
             return $array->mahasiswa->alamat;
         }
     } else {
@@ -155,6 +155,16 @@ function searchMahasiswa($name)
 {
     $user = User::where('name', $name)->get()[0];
     $data = Mahasiswa::where('user_id', $user['id'])->get()[0];
+    return $data;
+}
+
+function namaUser()
+{
+    $id = auth()->user()->id;
+    $name = auth()->user()->name;
+    if ($id == 2) $data = searchDosen($name);
+    else $data = searchMahasiswa($name);
+
     return $data;
 }
 
