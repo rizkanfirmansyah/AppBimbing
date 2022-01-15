@@ -148,14 +148,22 @@ function linkTo($param, $id)
 function searchDosen($name)
 {
     $user = User::where('name', $name)->get()[0];
-    $data = Dosen::where('user_id', $user['id'])->get()[0];
+    $data = Dosen::where('user_id', $user['id'])->get();
+
+    if ($data->count > 0) $data = $data[0];
+    else $data = null;
+
     return $data;
 }
 
 function searchMahasiswa($name)
 {
     $user = User::where('name', $name)->get()[0];
-    $data = Mahasiswa::where('user_id', $user['id'])->get()[0];
+    $data = Mahasiswa::where('user_id', $user['id'])->get();
+
+    if ($data->count > 0) $data = $data[0];
+    else $data = null;
+    
     return $data;
 }
 
