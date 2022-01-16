@@ -120,9 +120,8 @@ function NotifCount()
 
 function CheckStatusNotif($id)
 {
-    $status = NotificationStatus::find($id);
-
-    if ($status) {
+    $status = NotificationStatus::where('notification_id',$id)->where('username', auth()->user()->name);
+    if ($status->count() > 0) {
         $status = 'text-muted';
     } else {
         $status = 'font-weight-bold';
