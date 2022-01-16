@@ -145,9 +145,24 @@
                                                     <a class="badge badge-warning">Revisi</a>
                                                 @endif
                                             </td>
-                                            <td><a href="{{ route('download') }}?id={{ $item->file }}"
-                                                    class="badge badge-primary"><i class="fas fa-download"></i>
-                                                    Download</a></td>
+                                            <td>
+                                                @if ($item->file == null || $item->file == ' ')
+                                                    <a href="#" class="badge badge-secondary"><i
+                                                            class="fas fa-exclamation-triangle"></i>
+                                                        File Not Found</a>
+                                                @else
+                                                    <?php $file = CheckFile($item->file); ?>
+                                                    @if ($file == 1)
+                                                        <a href="{{ route('download') }}?id={{ $item->file }}"
+                                                            class="badge badge-primary"><i class="fas fa-download"></i>
+                                                            Download</a>
+                                                    @else
+                                                        <a href="#" class="badge badge-secondary"><i
+                                                                class="fas fa-exclamation-triangle"></i>
+                                                            File Not Found</a>
+                                                    @endif
+                                                @endif
+                                            </td>
                                             <td>{{ $item->description }}</td>
                                             <td>
                                                 @if ($bimbingan->status == 4)

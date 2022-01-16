@@ -182,6 +182,16 @@ function checkPeserta($id)
     return $peserta;
 }
 
+function CheckFile($file)
+{
+    if (file_exists(public_path("files/{$file}"))) {
+        return 1;
+    } else {
+        return 0;
+    }
+
+}
+
 // function status($id)
 // {
 //     if ($id === 2) return `<a class="badge badge-warning"><i class="fas fa-clock"></i> Waiting</a>`;
