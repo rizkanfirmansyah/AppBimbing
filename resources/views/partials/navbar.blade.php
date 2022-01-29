@@ -34,7 +34,7 @@
                         <div>
                             <div class="small text-gray-500">{{ date('d-M-Y', strtotime($item->created_at)) }}</div>
                             <span class="{{ CheckStatusNotif($item->id) }}">{{ $item->title }} <small>-
-                                    {{ $item->from }}</small> </span>
+                                    {{ CheckFrom($item->from) }}</small> </span>
                         </div>
                     </a>
                 @endforeach

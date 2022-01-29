@@ -192,6 +192,24 @@ function CheckFile($file)
 
 }
 
+function CheckFrom($name)
+{
+    if ($name == 'admin') {
+        return 'Admin';
+    } else {
+        $data = User::where('name', $name)->get();
+        if($data->count() > 0){
+            $dosen = Dosen::where('user_id', $data[0]->id)->get();
+            if ($dosen->count()> 0 ) {
+                return $dosen[0]->nama;
+            }
+            return Mahasiswa::where('user_id', $data[0]->id)->get()[0]->nama;
+        }
+        return $name;
+    }
+
+}
+
 // function status($id)
 // {
 //     if ($id === 2) return `<a class="badge badge-warning"><i class="fas fa-clock"></i> Waiting</a>`;
